@@ -1,0 +1,53 @@
+/* Inicio estilos de botones  */
+.bg-edit{
+    background: #33C2C3 !important;
+    color: white !important;
+
+}
+.bg-edit:hover{
+    background: #3d9e9e !important;
+    color: white !important;
+
+}
+.bg-ver{
+    background: #2A88CB !important;
+    color: white !important;
+}
+.bg-ver:hover{
+    background: #3d78a2 !important;
+    color: white !important;
+}
+
+.bg-delete{
+    background: #F72454 !important;
+    color: white !important;
+}
+.bg-delete:hover{
+    background: #c03152 !important;
+    color: white !important;
+}
+
+.bg-guardar{
+    background: #435db1 !important;
+    color: white !important;
+}
+
+.bg-guardar:hover{
+    background: #3c4d87 !important;
+    color: white !important;
+}
+
+
+.bg-card-header{
+    background: #435db1 !important;
+    color: white !important;
+}
+
+/* Termino de estilos de botones */
+
+
+/* estilos de textos de label formularios */
+.text-label{
+    color: rgb(35, 90, 145);
+    font-size: 15px;
+}
