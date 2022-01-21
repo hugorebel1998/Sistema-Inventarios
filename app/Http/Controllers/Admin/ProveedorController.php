@@ -104,4 +104,18 @@ class ProveedorController extends Controller
         // alert()->success('Éxito', 'Usuario eliminado.');
         return back();
     }
+
+    public function indexDelete()
+    {
+        $proveedores = Supplier::onlyTrashed()->get();
+        return view('admin.proveedores.inDelete', compact('proveedores'));   
+    }
+
+    public function restore($id)
+    {
+    //   $proveedor = Supplier::findOrFail($id);
+      Supplier::onlyTrashed()->findOrFail($id)->restore();
+      return redirect()->to(route('proveedores.index'));
+
+    }
 }

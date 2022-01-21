@@ -7,35 +7,9 @@
                 <div class="card card-indigo card-outline transparente shadow-lg">
                     <div class="card-header">
                         <b class="card-title-text">
-                            <i class="fas fa-user-friends"></i>
-                            Gestión de  proveedores
+                            <i class="fas fa-users-slash"></i>
+                            Gestión de  proveedores eliminados
                         </b>
-                    </div>
-                    <div class="d-flex flex-row-reverse mr-4">
-
-                        <div class="p-2">
-
-                            <div class="dropdown dropleft">
-                                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-sort-amount-up-alt"></i> Filtrar por
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ route('provedores.index.delete') }}">
-                                        <i class="fas fa-users-slash"></i>
-                                        Proveedores eliminados
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="p-2">
-                            <a href="{{ route('proveedor.create') }}" class="btn bg-indigo">
-                                <i class="fas fa-plus"></i>
-                                Agregar
-                            </a>
-                        </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -55,7 +29,7 @@
                             <tbody>
                                  @foreach ($proveedores as $proveedor)
                                      
-                                <tr>
+                                <tr @if ($proveedor->deleted_at) class="table-danger" @endif>
                                     <td>{{ $proveedor->id}}</td>
                                     <td><img src="{{ asset('img/proveedores/' . $proveedor->imagen_proveedor) }}"
                                         class="rounded mx-auto img-thumbnail" width="80">
@@ -76,22 +50,12 @@
                                     </td>
 
                                     <td class="text-center">
-                                        <div class="d-flex justify-content-center">
-                                            <div class="p-2">
-                                                <a href="{{ route('proveedor.edit', [$proveedor->id]) }}" class="btn btn-sm bg-edit" title="Editar">
-                                                    <i class="far fa-edit"></i>
-                                                </a>
-                                            </div>
-                                            <div class="p-2">
-                                               <form action="{{ route('proveedor.delete', [$proveedor->id]) }}" method="post" class="eliminar_proveedor">
-                                                   @csrf
-                                                   @method('delete')
-                                                   <button type="submit" class="btn btn-sm bg-delete" title="Eliminar">
-                                                    <i class="far fa-trash-alt"></i>
-                                                   </button>
-                                               </form>
-                                            </div>
-                                          </div>
+                                      <a href="{{ route('provedores.restore', [$proveedor->id]) }}" 
+                                         class="btn btn-sm bg-establecer restablecer_proveedor">
+                                        <i class="fas fa-trash-restore"></i>
+                                        Restablecer
+                                        </a>    
+                                    </div>
 
                                     </td>
                                 </tr>
@@ -105,29 +69,30 @@
         </div>
     </div>
     @section('alerta')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        $('.eliminar_proveedor').submit(function(e) {
+        $(".restablecer_proveedor").click(function(e) {
             e.preventDefault();
+            const href = $(this).attr('href');
             Swal.fire({
-                title: 'Estas seguro de eliminar?',
-                text: `Este proveedor sera eliminado`,
-                icon: 'warning',
+                title: 'Estas seguro de querer restablecerlo?',
+                text: `Este proveedor sera restablecido`,
+                icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, eliminar!'
+                confirmButtonText: 'Si, restablecer!'
             }).then((result) => {
-                if (result.isConfirmed) {
+                if (result.value) {
                     Swal.fire(
-                        'Eliminado!',
-                        'Haz eliminado este registro.',
-                        'success'
+                    'Éxito',
+                    'Este registro fue restablecido.',
+                    'success'
                     )
-                    this.submit();
+                    document.location.href = href;
                 }
             })
-        });
+        })
     </script>
 @endsection
 @endsection

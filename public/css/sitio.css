@@ -37,6 +37,18 @@
     color: white !important;
 }
 
+.bg-establecer{
+    background: #25366e !important;
+    color: white !important;
+}
+
+.bg-establecer:hover{
+    background: #222c4e !important;
+    color: white !important;
+}
+
+
+
 
 .bg-card-header{
     background: #435db1 !important;
