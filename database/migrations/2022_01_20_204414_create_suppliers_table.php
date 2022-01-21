@@ -18,8 +18,8 @@ class CreateSuppliersTable extends Migration
             $table->string('name');
             $table->string('apellidos');
             $table->string('email')->unique();
-            $table->string('telefono_1', 10)->unique();
-            $table->string('telefono_2', 10);
+            $table->string('telefono_1', 10);
+            $table->string('telefono_2', 10)->nullable();
             $table->string('calle');
             $table->string('numero_int');
             $table->string('numero_ext');

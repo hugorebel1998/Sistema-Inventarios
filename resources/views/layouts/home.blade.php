@@ -34,43 +34,7 @@
 
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="{{ asset('admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }} ">
-
-    <style>
-        .custom-file-input {
-    /* position: relative; */
-    width: 100%;
-    height: calc(2.25rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 1.25rem;
-    box-shadow: inset 0 0 0 rgb(0 0 0 / 0%);
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        }
-
-    .form-control {
-    display: block;
-    width: 100%;
-    height: calc(2.25rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 1.25rem;
-    box-shadow: inset 0 0 0 rgb(0 0 0 / 0%);
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-}
-    </style>
+    @toastr_css
 </head>
 
 <body class="hold-transition sidebar-collapsed">
@@ -130,8 +94,8 @@
         </nav>
         <aside class="main-sidebar sidebar-light-indigo elevation-4">
             <a href="" class="brand-link navbar-white pl-3">
-                <img class="mx-auto d-block" src="{{ asset('img/logos/cms.png') }}" alt="Habanero House"
-                    width="170">               
+                <img class="mx-auto d-block" src="{{ asset('img/laravel.png') }}" alt="Habanero House"
+                    width="150">               
             </a>
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -336,10 +300,11 @@
 
     <!-- Page specific script -->
 
-  
-
     {{-- AlertConfirmt --}}
-    {{--@yield('alerta')--}}
+    @yield('alerta')
+
+    @toastr_js
+    @toastr_render
 
 </body>
 

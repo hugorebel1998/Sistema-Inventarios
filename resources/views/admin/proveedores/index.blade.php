@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-11">
                 <div class="card card-indigo card-outline transparente shadow-lg">
-                    <div class="card-header text-indigo">
-                        <b class="lead font-weight-bold">
+                    <div class="card-header">
+                        <b class="card-title-text">
                             <i class="fas fa-user-friends"></i>
-                            Proveedores
+                            Gestión de  proveedores
                         </b>
                     </div>
                     <div class="d-flex flex-row-reverse mr-4">
@@ -44,48 +44,59 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col"></th>
-                                    <th scope="col">Rol</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Apellidos</th>
-                                    <th scope="col">Edad</th>
                                     <th scope="col">Teléfono</th>
-                                    <th scope="col" class="text-center">Administrador</th>
+                                    <th scope="col">Correo electrónico</th>
+                                    <th scope="col">Dirreción</th>
+                                    <th scope="col" class="text-center">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                 @foreach ($proveedores as $proveedor)
+                                     
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    {{-- <td>{{ $usuario->email }}</td> --}}
+                                    <td>{{ $proveedor->id}}</td>
+                                    <td><img src="{{ asset('img/proveedores/' . $proveedor->imagen_proveedor) }}"
+                                        class="rounded mx-auto img-thumbnail" width="80">
+                                    </td>
+                                    <td>{{ $proveedor->name}}</td>
+                                    <td>{{ $proveedor->apellidos}}</td>
+                                    <td>
+                                        <p>
+                                            {{ $proveedor->telefono_1}} <br>
+                                            {{ $proveedor->telefono_2}}
+                                        </p>
+                                            
+                                    </td>
+                                    <td>{{ $proveedor->email}}</td>
+                                    <td>
+                                        <p> {{ $proveedor->calle}} {{ $proveedor->numero_int}} {{ $proveedor->numero_ext}}  </br>
+                                        {{ $proveedor->colonia}} {{ $proveedor->municipio}} </p>
+                                    </td>
 
                                     <td class="text-center">
-
                                         <div class="d-flex justify-content-center">
                                             <div class="p-2">
-                                                <a href="#" class="btn btn-sm bg-ver" title="Ver">
-                                                    <i class="far fa-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="p-2">
-                                                <a href="#" class="btn btn-sm bg-edit" title="Editar">
+                                                <a href="{{ route('proveedor.edit', [$proveedor->id]) }}" class="btn btn-sm bg-edit" title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
                                             </div>
                                             <div class="p-2">
-                                                <a href="#" class="btn btn-sm bg-delete" title="Eliminar">
+                                               <form action="{{ route('proveedor.delete', [$proveedor->id]) }}" method="post" class="eliminar_proveedor">
+                                                   @csrf
+                                                   @method('delete')
+                                                   <button type="submit" class="btn btn-sm bg-delete" title="Eliminar">
                                                     <i class="far fa-trash-alt"></i>
-                                                </a>
+                                                   </button>
+                                               </form>
                                             </div>
                                           </div>
 
                                     </td>
                                 </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
                     </div>
@@ -93,5 +104,30 @@
             </div>
         </div>
     </div>
-
+    @section('alerta')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $('.eliminar_proveedor').submit(function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Estas seguro de eliminar?',
+                text: `Este proveedor sera eliminado`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Eliminado!',
+                        'Haz al proveedor.',
+                        'success'
+                    )
+                    this.submit();
+                }
+            })
+        });
+    </script>
+@endsection
 @endsection

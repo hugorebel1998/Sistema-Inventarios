@@ -46,8 +46,32 @@
 /* Termino de estilos de botones */
 
 
+.card-title-text{
+    color:  #2d3781 !important;
+    font-size: 17px;
+}
+
+
 /* estilos de textos de label formularios */
 .text-label{
     color: rgb(35, 90, 145);
     font-size: 15px;
 }
+
+/* Imagen de formulario editar */
+img.img-proveedor{
+    position: relative;
+    width: 240px !important;
+    height: 210px !important;
+    transition: transform .2s;
+    display: block;
+    border: 1px solid rgb(0, 0, 0.2);
+    z-index: 9999;
+}
+
+.img-proveedor:hover {
+    transform: scale(1.1);
+  }
+/* Imagen de formulario editar */
+
+  
