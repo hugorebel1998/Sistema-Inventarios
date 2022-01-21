@@ -15,11 +15,11 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('slug');
-            $table->date('fecha_compra')->nullable();
+            $table->string('fecha_compra');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('proveedor_id')->nullable();
+            $table->unsignedBigInteger('proveedor_id');
             $table->foreign('proveedor_id')->references('id')->on('suppliers');
             $table->foreign('user_id')->references('id')->on('users');
             $table->softDeletes();

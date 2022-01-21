@@ -1,3 +1,6 @@
+
+
+
 /* Inicio estilos de botones  */
 .bg-edit{
     background: #33C2C3 !important;
@@ -86,4 +89,10 @@ img.img-proveedor{
   }
 /* Imagen de formulario editar */
 
-  
+ 
+/* Estilos de tabla transparente */
+.transparente {
+    background-color: rgb(249, 249, 249);
+    opacity: 0.90;
+}
+/* Termino de estilos de tabla transparente */

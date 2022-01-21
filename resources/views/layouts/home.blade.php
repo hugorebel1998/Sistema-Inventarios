@@ -35,6 +35,18 @@
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="{{ asset('admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }} ">
     @toastr_css
+
+    <style>
+         .portada {
+            background: url({{ asset('img/fondos/fondo_home.png') }} ) no-repeat fixed center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            /* background-size: cover;             */
+        }
+        
+        
+    </style>
 </head>
 
 <body class="hold-transition sidebar-collapsed">
@@ -187,11 +199,17 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="" class="nav-link text-secondary">
+                                    <a href="{{ route('categorias.index') }}" class="nav-link text-secondary">
                                         <i class="far fa-list-alt nav-icon"></i>
                                         <p class="text-black">Gestión categorias</p>
                                     </a>
-                                </li>                                
+                                </li>  
+                                <li class="nav-item">
+                                    <a href="" class="nav-link text-secondary">
+                                        <i class="fas fa-plus nav-icon"></i>
+                                        <p>Crear categoria</p>
+                                    </a>
+                                </li>                              
                             </ul>
                         </li>
 

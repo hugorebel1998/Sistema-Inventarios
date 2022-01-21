@@ -14,4 +14,11 @@ class Supplier extends Model
         'name','apellidos','email','telefono_1','telefono_2','calle',
         'numero_int', 'numero_ext', 'colonia', 'municipio', 'imagen_proveedor'
     ];
+
+
+
+    public function categoryProvedor()
+    {
+        return $this->hasMany(Category::class, 'id', 'proveedor_id');
+    }
 }
