@@ -19,8 +19,8 @@ class CreatePedidosTable extends Migration
             $table->string('tipo_pedido');
             $table->date('fecha');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('cliente_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('cliente_id')->references('id')->on('customers');
             $table->timestamps();
         });

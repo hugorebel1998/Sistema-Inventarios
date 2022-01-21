@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('apellido_p');
             $table->string('apellido_m');
             $table->enum('perfil',['Administrador', 'Colaborador'])->default('Administrador')->nullable();
-            $table->string('email')->unique();
             $table->string('telefono', 10);
+            $table->string('email')->unique();
             $table->string('password');
             $table->string('imagen_usuario')->nullable();
             $table->string('permiso');

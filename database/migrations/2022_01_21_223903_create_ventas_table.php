@@ -15,6 +15,7 @@ class CreateVentasTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
+            $table->string('status');
             $table->string('tipo_venta');
             $table->string('tipo_comprobante');
             $table->string('serie_comprobante');
@@ -22,10 +23,9 @@ class CreateVentasTable extends Migration
             $table->date('fecha');
             $table->decimal('impuesto', 11,2);
             $table->string('total', 11,2);
-            $table->string('status');
             $table->unsignedBigInteger('pedido_id');
-            $table->foreign('pedido_id')->references('id')->on('pedidos');
             $table->unsignedBigInteger('user_id');
+            $table->foreign('pedido_id')->references('id')->on('pedidos');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

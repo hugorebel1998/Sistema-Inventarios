@@ -24,6 +24,7 @@ class CreateCollaboratorsTable extends Migration
             $table->string('fecha_nacimiento');
             $table->string('email');
             $table->string('imagen_colavorador');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -23,8 +23,8 @@ class CreateIngresosTable extends Migration
             $table->decimal('total',8,2);
             $table->string('status');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('proveedor_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('proveedor_id')->references('id')->on('suppliers');
             $table->timestamps();
         });

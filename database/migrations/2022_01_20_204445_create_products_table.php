@@ -20,8 +20,8 @@ class CreateProductsTable extends Migration
             $table->text('descripcion');
             $table->string('imagen_producto');
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
             $table->unsignedBigInteger('unidad_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('unidad_id')->references('id')->on('unida_medidas');
             $table->softDeletes();
             $table->timestamps();
