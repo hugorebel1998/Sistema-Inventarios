@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateCustomersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->enum('status',['Activo', 'Bloqueado'])->default('Activo');
             $table->string('name');
-            $table->text('descripcion');
-            $table->string('imagen_producto');
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->unsignedBigInteger('unidad_id');
-            $table->foreign('unidad_id')->references('id')->on('unida_medidas');
-            $table->softDeletes();
+            $table->string('apellidos');
+            $table->string('tipo_documento');
+            $table->string('telefono', 10);
+            $table->string('direccion');
+            $table->string('fecha_nacimiento');
+            $table->string('email');
+            $table->string('imagen_colavorador');
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('customers');
     }
 }

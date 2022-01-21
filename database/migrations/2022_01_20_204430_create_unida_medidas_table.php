@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateUnidaMedidasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('unida_medidas', function (Blueprint $table) {
             $table->id();
-            $table->enum('status',['Activo', 'Bloqueado'])->default('Activo');
-            $table->string('name');
-            $table->string('slug');
-            $table->softDeletes();
+            $table->string('status');
+            $table->string('nombre');
+            $table->string('prefijo');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('unida_medidas');
     }
 }

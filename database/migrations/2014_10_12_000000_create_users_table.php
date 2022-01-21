@@ -21,11 +21,12 @@ class CreateUsersTable extends Migration
             $table->string('apellido_m');
             $table->enum('perfil',['Administrador', 'Colaborador'])->default('Administrador')->nullable();
             $table->string('email')->unique();
-            //$table->timestamp('email_verified_at')->nullable();
             $table->string('telefono', 10);
             $table->string('password');
             $table->string('imagen_usuario')->nullable();
             $table->string('permiso');
+            $table->unsignedBigInteger('colaborador_id')->nullable();
+            $table->foreign('colaborador_id')->references('id')->on('collaborators');
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
