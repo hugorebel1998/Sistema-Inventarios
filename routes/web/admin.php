@@ -10,6 +10,7 @@ Route::get('/', 'HomeController@index')->name('home');
 // Rutas de proveedores
 Route::get('/proveedores/index', 'ProveedorController@index')->name('proveedores.index');
 Route::get('/proveedores/create', 'ProveedorController@create')->name('proveedor.create');
+Route::post('/proveedor/store', 'ProveedorController@store')->name('proveedor.store');
 Route::get('/proveedores/edit', 'ProveedorController@edit')->name('proveedores.edit');
 
 
