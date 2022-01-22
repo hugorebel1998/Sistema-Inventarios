@@ -121,6 +121,41 @@
                         data-accordion="false">
                         <li class="nav-item ">
                             <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-laptop-house"></i>
+                                <p>
+                                    Mantenimiento
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a href="{{ route('general.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-tools nav-icon"></i>
+                                        <p class="text-black">Geneal</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-secondary">
+                                        <i class="fas fa-users nav-icon"></i>
+                                        <p class="text-black">Colaboradores</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-secondary">
+                                        <i class="fas fa-user-friends nav-icon"></i>
+                                        <p class="text-black">Usuarios</p>
+                                    </a>
+                                </li>
+                               
+
+                            </ul>
+                        </li>
+                       
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-user-friends"></i>
                                 <p>
                                     Proveedores
@@ -148,34 +183,7 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item ">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-users"></i>
-                                <p>
-                                    Usuarios
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-
-                                <li class="nav-item">
-                                    <a href="" class="nav-link text-secondary">
-                                        <i class="far fa-list-alt nav-icon"></i>
-                                        <p class="text-black">Gestión usuarios</p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="" class="nav-link text-secondary">
-                                        <i class="fas fa-plus nav-icon"></i>
-                                        <p>Crear usuario</p>
-                                    </a>
-                                </li>
-
-                               
-
-                            </ul>
-                        </li>
+                       
 
                         <li class="nav-item ">
                             <a href="#" class="nav-link active">

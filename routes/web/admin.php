@@ -4,6 +4,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'AdminHomeController@index')->name('admin.home');
 
+//Rutas General Administracion del sistema
+Route::get('/general/index', 'GeneralController@index')->name('general.index');
+Route::get('/geneal/edit/{general}', 'GeneralController@edit')->name('general.edit');
+Route::put('/general/update', 'GeneralController@update')->name('general.update');
+
+
+
+
 
 // Rutas de proveedores
 Route::get('/proveedores/index', 'ProveedorController@index')->name('proveedores.index');

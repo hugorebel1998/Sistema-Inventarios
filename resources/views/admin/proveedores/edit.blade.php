@@ -11,7 +11,7 @@
                                 <div class="card-title"><i class="fas fa-user-edit"></i> Editar proveedor</div>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('proveedor.update')}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('proveedor.update') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="row">
@@ -145,15 +145,15 @@
                             <div class="card-body">
                                 <div class="col-md-12">
                                     @if ($proveedor->imagen_proveedor)
-                                    <img src="{{ asset('img/proveedores/' . $proveedor->imagen_proveedor) }}"
-                                        class="rounded mx-auto d-block img-proveedor">
+                                        <img src="{{ asset('img/proveedores/' . $proveedor->imagen_proveedor) }}"
+                                            class="rounded mx-auto d-block img-proveedor">
                                     @else
-                                    <img src="{{ asset('img/proveedores/sin_asignar/foto.jpg') }}" 
-                                        class="rounded mx-auto d-block img-proveedor">
+                                        <img src="{{ asset('img/proveedores/sin_asignar/foto.jpg') }}"
+                                            class="rounded mx-auto d-block img-proveedor">
                                     @endif
                                 </div>
-                            
-                        </div>
+
+                            </div>
                         </div>
                     </div>
 

@@ -15,10 +15,11 @@ class CreateAjustesTable extends Migration
     {
         Schema::create('ajustes', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_empresa');
-            $table->string('impuesto');
+            $table->string('name');
+            $table->string('impuesto')->nullable();
+            $table->decimal('porcentaje_impuesto')->nullable();
             $table->string('moneda');
-            $table->string('logo');
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }
