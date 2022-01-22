@@ -37,6 +37,7 @@
     @toastr_css
 
     <style>
+<<<<<<< HEAD
          .portada {
             background: url({{ asset('img/fondos/fondo_home.png') }} ) no-repeat fixed center;
             -webkit-background-size: cover;
@@ -46,6 +47,12 @@
         }
         
         
+=======
+           .custom-file-input~.custom-file-label::after {
+            content: "Subir";
+            
+        }
+>>>>>>> 39b1dc3dc70ced6512677bc521c5783bced8657f
     </style>
 </head>
 

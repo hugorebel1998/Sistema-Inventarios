@@ -9,6 +9,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/proveedores/index', 'ProveedorController@index')->name('proveedores.index');
 Route::get('/proveedores/create', 'ProveedorController@create')->name('proveedor.create');
 Route::post('/proveedor/store', 'ProveedorController@store')->name('proveedor.store');
+<<<<<<< HEAD
 Route::get('/proveedor/edit/{proveedor}', 'ProveedorController@edit')->name('proveedor.edit');
 Route::put('/proveedor/update', 'ProveedorController@update')->name('proveedor.update');
 Route::delete('/proveedor/delete/{proveedor}', 'ProveedorController@delete')->name('proveedor.delete');
@@ -28,6 +29,9 @@ Route::delete('/categorias/delete', 'CategoryController@delete')->name('categori
 
 
 
+=======
+Route::get('/proveedores/edit', 'ProveedorController@edit')->name('proveedores.edit');
+>>>>>>> 39b1dc3dc70ced6512677bc521c5783bced8657f
 
 
 
