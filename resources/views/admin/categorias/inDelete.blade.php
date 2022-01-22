@@ -7,8 +7,8 @@
                 <div class="card card-indigo card-outline transparente shadow-lg">
                     <div class="card-header">
                         <b class="card-title-text">
-                            <i class="fas fa-users-slash"></i>
-                            Gestión de  proveedores eliminados
+                            <i class="fas fa-shapes"></i>
+                            Gestión de  categorias eliminadas
                         </b>
                     </div>
                     <!-- /.card-header -->
@@ -17,46 +17,36 @@
                             <thead class="text-white" style="background: #3f4570">
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col"></th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Apellidos</th>
-                                    <th scope="col">Teléfono</th>
-                                    <th scope="col">Correo electrónico</th>
-                                    <th scope="col">Dirreción</th>
+                                    <th scope="col">Fecha compra</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col" class="text-center">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                 @foreach ($proveedores as $proveedor)
+                                 @foreach ($categorias as $categoria)
                                      
-                                <tr @if ($proveedor->deleted_at) class="table-danger" @endif>
-                                    <td>{{ $proveedor->id}}</td>
-                                    <td><img src="{{ asset('img/proveedores/' . $proveedor->imagen_proveedor) }}"
-                                        class="rounded mx-auto img-thumbnail" width="80">
-                                    </td>
-                                    <td>{{ $proveedor->name}}</td>
-                                    <td>{{ $proveedor->apellidos}}</td>
+                                <tr  @if ($categoria->deleted_at) class="table-danger" @endif>
+                                    <td>{{ $categoria->id}}</td>
+                                    <td>{{ $categoria->name}}</td>
+                                    <td>{{ $categoria->fecha_compra}}</td>
                                     <td>
-                                        <p>
-                                            {{ $proveedor->telefono_1}} <br>
-                                            {{ $proveedor->telefono_2}}
+                                        @if ($categoria->status == 'Activo')
+                                        <p class="badge rounded-pill bg-success">
+                                            {{ $categoria->status}}
                                         </p>
-                                            
+                                        @elseif ($categoria->status == 'Bloqueado')
+                                        <span class="badge rounded-pill bg-danger">
+                                            {{ $categoria->status}}
+                                        </span>
+                                        @endif
                                     </td>
-                                    <td>{{ $proveedor->email}}</td>
-                                    <td>
-                                        <p> {{ $proveedor->calle}} {{ $proveedor->numero_int}} {{ $proveedor->numero_ext}}  </br>
-                                        {{ $proveedor->colonia}} {{ $proveedor->municipio}} </p>
-                                    </td>
-
                                     <td class="text-center">
-                                      <a href="{{ route('provedore.restore', [$proveedor->id]) }}" 
-                                         class="btn btn-sm bg-establecer restablecer_proveedor">
-                                        <i class="fas fa-trash-restore"></i>
-                                        Restablecer
-                                        </a>    
-                                    </div>
-
+                                        <a href="{{ route('categoria.restore', [$categoria->id]) }}" 
+                                            class="btn btn-sm bg-establecer restablecer_categoria">
+                                           <i class="fas fa-trash-restore"></i>
+                                           Restablecer
+                                           </a>    
                                     </td>
                                 </tr>
                                 @endforeach
@@ -71,12 +61,12 @@
     @section('alerta')
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        $(".restablecer_proveedor").click(function(e) {
+        $(".restablecer_categoria").click(function(e) {
             e.preventDefault();
             const href = $(this).attr('href');
             Swal.fire({
                 title: 'Estas seguro de querer restablecerlo?',
-                text: `Este proveedor sera restablecido`,
+                text: `Esta categoria sera restablecida`,
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

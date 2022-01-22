@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->enum('status',['Activo', 'Bloqueado'])->default('Activo');
             $table->string('name');
+            $table->string('fecha_compra');
             $table->string('slug');
             $table->softDeletes();
             $table->timestamps();

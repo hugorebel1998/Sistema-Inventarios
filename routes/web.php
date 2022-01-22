@@ -14,16 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect()->to(route('home'));
-    } else {
-        return view('auth.login');
-    }
+// Route::get('/', function () {
+//     if (Auth::check()) {
+//         return redirect()->to(route('home'));
+//     } else {
+//         return view('auth.login');
+//     }
     
-});
+// });
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 

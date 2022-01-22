@@ -50,7 +50,7 @@
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
 
-                    <a href="" class="nav-link text-white"><i class="fas fa-home"></i>
+                    <a href="{{ url('/') }}" class="nav-link text-white"><i class="fas fa-home"></i>
                         Inicio</a>
                 </li>
                 <!-- <li class="nav-item d-none d-sm-inline-block">

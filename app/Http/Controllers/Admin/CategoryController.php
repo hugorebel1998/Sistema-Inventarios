@@ -24,13 +24,13 @@ class CategoryController extends Controller
     public function index()
     {
         $categorias = Category::all();
+        // dd($categorias);
         return view('admin.categorias.index', compact('categorias'));
     }
     public function create()
     {
-        $usuarios = User::where('status' ,'Activo')->get();
-        $proveedores = Supplier::select('id', 'name')->get();
-        return view('admin.categorias.create', compact('usuarios', 'proveedores'));
+        return view('admin.categorias.create');
+
     }
 
     public function store(CategoryRequest $request)
@@ -40,8 +40,6 @@ class CategoryController extends Controller
         $categoria->name = $request->nombre;
         $categoria->slug = Str::slug($request->nombre);
         $categoria->fecha_compra = $fecha;
-        $categoria->user_id = $request->usuario;
-        $categoria->proveedor_id = $request->proveedor;
 
         //  dd($categoria);
         if ($categoria->save()) {
@@ -59,35 +57,49 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $categoria = Category::findOrFail($id);
-        $usuarios = User::where('status' ,'Activo')->get();
-        $proveedores = Supplier::select('id', 'name', 'apellidos')->get();
-        return view('admin.categorias.edit', compact('categoria', 'usuarios', 'proveedores'));
+        return view('admin.categorias.edit', compact('categoria'));
     }
 
     public function update(Request $request, $id)
     {
 
         $categoria = Category::findOrFail($id);
-        $id_user = $request->user_id;
-        $user = User::findOrFail($id_user);
-        $id_prove = $request->proveedor_id;
-        $prove = Supplier::findOrFail($id_prove);
-
         $request->validate([
-            'name' => 'required|unique:categories,name,' .$categoria->id,
-            // 'usuario' => 'required',
-            // 'proveedor' => 'required'
+            'nombre' => 'required|unique:categories,name,' .$categoria->id
         ]);
 
         $categoria->name = $request->nombre;
-        $categoria->user_id = $user;
-        $categoria->proveedor_id = $prove;
-
-
-        dd($categoria);
+        $categoria->status = $request->estatus;
+      
+        if ($categoria->save()) {
+            toastr()->info('Categoria actualizada');
+            return redirect()->to(route('categorias.index'));
+        } else {
+            toastr()->error('Algo salio mal!!!');
+            return redirect()->back();
+        }
 
     }
+    public function delete($id)
+    {
+        $categoria = Category::findOrFail($id);
+        $categoria->delete();
+        return back();
+    }
 
+    public function indexDelete()
+    {
+        $categorias = Category::onlyTrashed()->get();
+        return view('admin.categorias.inDelete', compact('categorias'));   
+    }
+
+    public function restore($id)
+    {
+    //   $proveedor = Supplier::findOrFail($id);
+      Category::onlyTrashed()->findOrFail($id)->restore();
+      return redirect()->to(route('categorias.index'));
+
+    }
 
 
 }

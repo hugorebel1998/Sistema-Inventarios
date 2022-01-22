@@ -31,40 +31,6 @@
                                 @enderror
                             </div>
                               
-                            <div class="col-md-6 mt-3">
-                                <div class="form-group">
-                                    <label class="text-label">Usuario</label>
-                                    <select name="usuario" class="custom-select  select2bs4 @error('usuario') is-invalid @enderror"
-                                        style="width: 100%;">
-                                        <option value="" selected>-- Selecciona un usuario--</option>
-                                        @foreach ($usuarios as $usuario)
-                                           <option value="{{$usuario->id}}" {{(old('usuario') == $usuario->id ? 'selected' : '')}} > {{$usuario->name}} </option>
-                                        @endforeach
-                                    </select>
-                                    <small id="emailHelp" class="form-text text-muted">Selecciona un usuario </small>
-                                @error('usuario')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <div class="form-group">
-                                    <label class="text-label">Proveedor</label>
-                                    <select name="proveedor" class="custom-select  select2bs4 @error('proveedor') is-invalid @enderror"
-                                        style="width: 100%;">
-                                        <option value="" selected>-- Selecciona un proveedor--</option>
-                                        @foreach ($proveedores as $proveedor)
-                                           <option value="{{$proveedor->id}}" {{(old('proveedor') == $proveedor->id ? 'selected' : '')}} > {{$proveedor->name}} </option>
-                                        @endforeach
-                                    </select>
-                                    <small id="emailHelp" class="form-text text-muted">Selecciona un proveedor</small>
-                                @error('proveedor')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                                </div>
-                            </div>
-                          
-        
                         </div>
                         <hr>
 

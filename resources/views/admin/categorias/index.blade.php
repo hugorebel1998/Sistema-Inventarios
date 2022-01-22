@@ -22,7 +22,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ route('provedores.index.delete') }}">
+                                    <a class="dropdown-item" href="{{ route('categorias.index.delete') }}">
                                         <i class="fas fa-users-slash"></i>
                                          Categorias eliminadas
                                     </a>
@@ -39,14 +39,13 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table class="order-table table table-hover" cellspacing="0" width="100%" id="example2">
+                        <table class="order-table table table-striped table-hover" cellspacing="0" width="100%" id="example2">
                             <thead class="text-white" style="background: #3f4570">
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Fecha compra</th>
-                                    <th scope="col">Usuario</th>
-                                    <th scope="col">Proveedor</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col" class="text-center">Acciones</th>
                                 </tr>
                             </thead>
@@ -57,8 +56,17 @@
                                     <td>{{ $categoria->id}}</td>
                                     <td>{{ $categoria->name}}</td>
                                     <td>{{ $categoria->fecha_compra}}</td>
-                                    <td>{{ $categoria->categoryUser->name }} {{ $categoria->categoryUser->apellido_p }} {{ $categoria->categoryUser->apellido_m }}</td>
-                                    <td>{{ $categoria->categoryProveedor->name }} {{ $categoria->categoryProveedor->apellidos }}</td>
+                                    <td>
+                                        @if ($categoria->status == 'Activo')
+                                        <p class="badge rounded-pill bg-success">
+                                            {{ $categoria->status}}
+                                        </p>
+                                        @elseif ($categoria->status == 'Bloqueado')
+                                        <span class="badge rounded-pill bg-danger">
+                                            {{ $categoria->status}}
+                                        </span>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center">
                                             <div class="p-2">

@@ -26,8 +26,6 @@ class CategoryRequest extends FormRequest
         return [
             'nombre' => 'required',
             'fecha_de_compra' => 'required',
-            'usuario' => 'required',
-            'proveedor' => 'required'
         ];
     }
 }
