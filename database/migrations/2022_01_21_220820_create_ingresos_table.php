@@ -15,13 +15,13 @@ class CreateIngresosTable extends Migration
     {
         Schema::create('ingresos', function (Blueprint $table) {
             $table->id();
+            $table->string('status');
             $table->string('tipo_comprobante');
             $table->string('serie_comprobante');
             $table->string('num_comprobante');
             $table->string('fecha');
             $table->decimal('impuesto',8,2);
             $table->decimal('total',8,2);
-            $table->string('status');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('proveedor_id');
             $table->foreign('user_id')->references('id')->on('users');

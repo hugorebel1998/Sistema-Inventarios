@@ -11,6 +11,6 @@ class Customer extends Model
 
     protected $fillable = [
         'status','name','apellidos','tipo_documento', 'telefono', 'direccion', 'fecha_nacimiento',
-        'email', 'imagen_colavorador'
+        'email', 'imagen_cliente'
       ];
 }

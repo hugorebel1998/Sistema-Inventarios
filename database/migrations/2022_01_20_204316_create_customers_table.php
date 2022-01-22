@@ -22,8 +22,8 @@ class CreateCustomersTable extends Migration
             $table->string('telefono', 10);
             $table->string('direccion');
             $table->string('fecha_nacimiento');
-            $table->string('email');
-            $table->string('imagen_colavorador');
+            $table->string('email')->unique();
+            $table->string('imagen_cliente');
             $table->softDeletes();
             $table->timestamps();
         });

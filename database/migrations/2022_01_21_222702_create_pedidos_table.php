@@ -15,7 +15,7 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $table->enum('status', ['Pendiente', 'Pagado']);
+            $table->enum('status', ['Pendiente', 'Aprovado']);
             $table->string('tipo_pedido');
             $table->date('fecha');
             $table->unsignedBigInteger('user_id');
