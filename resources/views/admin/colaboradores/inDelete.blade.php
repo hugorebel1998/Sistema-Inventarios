@@ -8,9 +8,10 @@
                     <div class="card-header">
                         <b class="card-title-text">
                             <i class="fas fa-user-friends"></i>
-                            Gestión de usuarios
+                            Gestión de colaboradores eliminados
                         </b>
                     </div>
+                    
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table class="order-table table-striped table table-hover" cellspacing="0" width="100%"
@@ -28,25 +29,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($usuarios as $usuario)
+                                @foreach ($empleados as $empleado)
 
-                                    <tr  @if ($usuario->deleted_at) class="table-danger" @endif>
-                                        <td>{{ $usuario->id }}</td>
+                                    <tr  @if ($empleado->deleted_at) class="table-danger" @endif>
+                                        <td>{{ $empleado->id }}</td>
                                         <td>
-                                            @if (is_null($usuario->imagen_usuario))
+                                            @if (is_null($empleado->imagen_usuario))
                                                 <img src="{{ asset('img/users/sin_asignar/foto.png') }}"
                                                     class="rounded mx-auto img-thumbnail" width="80">
                                             @else
-                                                <img src="{{ asset('img/users/' . $usuario->imagen_usuario) }}"
+                                                <img src="{{ asset('img/users/' . $empleado->imagen_usuario) }}"
                                                     class="rounded mx-auto img-thumbnail" width="80">
                                             @endif
                                         </td>
-                                        <td>{{ $usuario->name }}</td>
-                                        <td>{{ $usuario->apellido_p }} {{ $usuario->apellido_m }}</td>
-                                        <td>{{ $usuario->telefono }}</td>
-                                        <td>{{ $usuario->email }}</td>
+                                        <td>{{ $empleado->name }}</td>
+                                        <td>{{ $empleado->apellidos}}</td>
+                                        <td>{{ $empleado->telefono }}</td>
+                                        <td>{{ $empleado->email }}</td>
                                         <td>
-                                            @if ($usuario->deleted_at)
+                                            @if ($empleado->deleted_at)
                                                 <p class="badge rounded-pill bg-danger">
                                                     No activo
                                                 </p>
@@ -54,8 +55,8 @@
                                         </td>
 
                                         <td class="text-center">
-                                            <a href="{{ route('usuario.restore', [$usuario->id]) }}"
-                                                class="btn btn-sm bg-establecer restablecer_usuario">
+                                            <a href="{{ route('colaborador.restore', [$empleado->id]) }}"
+                                                class="btn btn-sm bg-establecer restablecer_empleado">
                                                 <i class="fas fa-trash-restore"></i>
                                                 Restablecer
                                             </a>
@@ -73,12 +74,12 @@
     @section('alerta')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
      <script>
-         $(".restablecer_usuario").click(function(e) {
+         $(".restablecer_empleado").click(function(e) {
              e.preventDefault();
              const href = $(this).attr('href');
              Swal.fire({
                  title: 'Estas seguro de querer restablecerlo?',
-                 text: `Este usuario sera restablecido`,
+                 text: `Este empleado sera restablecido`,
                  icon: 'question',
                  showCancelButton: true,
                  confirmButtonColor: '#3085d6',

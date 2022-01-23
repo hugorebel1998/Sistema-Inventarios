@@ -145,7 +145,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link text-secondary">
+                                    <a href="{{ route('colaboradores.index') }}" class="nav-link text-secondary">
                                         <i class="fas fa-users nav-icon"></i>
                                         <p class="text-black">Colaboradores</p>
                                     </a>

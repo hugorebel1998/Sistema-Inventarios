@@ -15,7 +15,7 @@ class CreateCollaboratorsTable extends Migration
     {
         Schema::create('collaborators', function (Blueprint $table) {
             $table->id();
-            $table->enum('status',['Activo', 'Bloqueado'])->default('Activo');
+            $table->enum('status',['Activo', 'No activo'])->default('Activo');
             $table->string('name');
             $table->string('apellidos');
             $table->string('tipo_documento');

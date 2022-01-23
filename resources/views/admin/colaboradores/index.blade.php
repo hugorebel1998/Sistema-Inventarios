@@ -8,7 +8,7 @@
                     <div class="card-header">
                         <b class="card-title-text">
                             <i class="fas fa-user-friends"></i>
-                            Gestión de usuarios
+                            Gestión de colaboradores
                         </b>
                     </div>
                     <div class="d-flex flex-row-reverse mr-4">
@@ -22,16 +22,16 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ route('usuarios.index.delete') }}">
+                                    <a class="dropdown-item" href="{{ route('colaboradores.index.delete') }}">
                                             <i class=" fas fa-users-slash"></i>
-                                        Usuarios eliminados
+                                        Colaboradores eliminados
                                     </a>
                                 </div>
                             </div>
 
                         </div>
                         <div class="p-2">
-                            <a href="{{ route('usuario.create') }}" class="btn bg-indigo">
+                            <a href="{{ route('colaborador.create') }}" class="btn bg-indigo">
                                 <i class="fas fa-plus"></i>
                                 Agregar
                             </a>
@@ -54,31 +54,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($usuarios as $usuario)
+                                @foreach ($empleados as $empleado)
 
-                                    <tr  @if ($usuario->status == 'Activo') class="table-success"  @else class="table-danger" @endif>
-                                        <td>{{ $usuario->id }}</td>
+                                    <tr>
+                                        <td>{{ $empleado->id }}</td>
                                         <td>
-                                            @if (is_null($usuario->imagen_usuario))
+                                            @if (is_null($empleado->imagen_usuario))
                                                 <img src="{{ asset('img/users/sin_asignar/foto.png') }}"
                                                     class="rounded mx-auto img-thumbnail" width="80">
                                             @else
-                                                <img src="{{ asset('img/users/' . $usuario->imagen_usuario) }}"
+                                                <img src="{{ asset('img/users/' . $empleado->imagen_usuario) }}"
                                                     class="rounded mx-auto img-thumbnail" width="80">
                                             @endif
                                         </td>
-                                        <td>{{ $usuario->name }}</td>
-                                        <td>{{ $usuario->apellido_p }} {{ $usuario->apellido_m }}</td>
-                                        <td>{{ $usuario->telefono }}</td>
-                                        <td>{{ $usuario->email }}</td>
+                                        <td>{{ $empleado->name }}</td>
+                                        <td>{{ $empleado->apellidos}}</td>
+                                        <td>{{ $empleado->telefono }}</td>
+                                        <td>{{ $empleado->email }}</td>
                                         <td>
-                                            @if ($usuario->status == 'Activo')
+                                            @if ($empleado->status == 'Activo')
                                                 <p class="badge rounded-pill bg-success">
-                                                    {{ $usuario->status }}
+                                                    {{ $empleado->status }}
                                                 </p>
-                                            @elseif ($usuario->status == 'No activo')
+                                            @elseif ($empleado->status == 'No activo')
                                                 <span class="badge rounded-pill bg-danger">
-                                                    {{ $usuario->status }}
+                                                    {{ $empleado->status }}
                                                 </span>
                                             @endif
                                         </td>
@@ -86,12 +86,12 @@
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">
                                                 <div class="p-2">
-                                                    <a href="{{ route('usuario.edit', [$usuario->id]) }}" class="btn btn-sm bg-edit" title="Editar">
+                                                    <a href="{{ route('colaborador.edit', [$empleado->id]) }}" class="btn btn-sm bg-edit" title="Editar">
                                                         <i class="far fa-edit"></i>
                                                     </a>
                                                 </div>
                                                 <div class="p-2">
-                                                    <form action="{{ route('usuario.delete', [$usuario->id]) }}" method="post" class="eliminar_usuario">
+                                                    <form action="{{ route('colaborador.delete', [$empleado->id]) }}" method="post" class="eliminar_usuario">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-sm bg-delete" title="Eliminar">
@@ -119,7 +119,7 @@
             e.preventDefault();
             Swal.fire({
                 title: 'Estas seguro de eliminar?',
-                text: `Este usuario sera eliminado`,
+                text: `Este empleado sera eliminado`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
