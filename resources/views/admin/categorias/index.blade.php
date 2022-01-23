@@ -45,7 +45,7 @@
                                     <th scope="col">ID</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Fecha compra</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Estatus</th>
                                     <th scope="col" class="text-center">Acciones</th>
                                 </tr>
                             </thead>

@@ -15,16 +15,16 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->enum('status',['Activo', 'Bloqueado'])->default('Activo');
+            $table->enum('status',['Activo', 'No activo'])->default('Activo');
             $table->string('name');
             $table->string('apellido_p');
             $table->string('apellido_m');
-            $table->enum('perfil',['Administrador', 'Colaborador'])->default('Administrador')->nullable();
+            $table->enum('perfil',['Administrador', 'Colaborador']);
             $table->string('telefono', 10);
             $table->string('email')->unique();
             $table->string('password');
             $table->string('imagen_usuario')->nullable();
-            $table->string('permiso');
+            $table->string('permiso')->nullable();
             $table->unsignedBigInteger('colaborador_id')->nullable();
             $table->foreign('colaborador_id')->references('id')->on('collaborators');
             $table->softDeletes();

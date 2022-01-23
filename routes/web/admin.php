@@ -10,6 +10,16 @@ Route::get('/geneal/edit/{general}', 'GeneralController@edit')->name('general.ed
 Route::put('/general/update', 'GeneralController@update')->name('general.update');
 
 
+//Rutas de usuarios
+Route::get('/usuarios/index', 'UserController@index')->name('usuarios.index');
+Route::get('/usuarios/create', 'UserController@create')->name('usuario.create');
+Route::post('/usuarios/store', 'UserController@store')->name('usuario.store');
+Route::get('/usuarios/edit/{user}', 'UserController@edit')->name('usuario.edit');
+Route::put('/usuario/update', 'UserController@update')->name('usuario.update');
+Route::delete('/usuario/delete/{usser}', 'UserController@delete')->name('usuario.delete');
+Route::get('/usuarios/eliminados', 'UserController@indexDelete')->name('usuarios.index.delete');
+Route::get('/usuarios/restablecer/{user}', 'UserController@restore')->name('usuario.restore');
+
 
 
 

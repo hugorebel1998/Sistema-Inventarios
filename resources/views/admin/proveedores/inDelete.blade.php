@@ -8,12 +8,13 @@
                     <div class="card-header">
                         <b class="card-title-text">
                             <i class="fas fa-users-slash"></i>
-                            Gestión de  proveedores eliminados
+                            Gestión de proveedores eliminados
                         </b>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table class="order-table table-striped table table-hover" cellspacing="0" width="100%" id="example2">
+                        <table class="order-table table-striped table table-hover" cellspacing="0" width="100%"
+                            id="example2">
                             <thead class="text-white" style="background: #3f4570">
                                 <tr>
                                     <th scope="col">ID</th>
@@ -27,40 +28,38 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                 @foreach ($proveedores as $proveedor)
-                                     
-                                <tr @if ($proveedor->deleted_at) class="table-danger" @endif>
-                                    <td>{{ $proveedor->id}}</td>
-                                    <td><img src="{{ asset('img/proveedores/' . $proveedor->imagen_proveedor) }}"
-                                        class="rounded mx-auto img-thumbnail" width="80">
-                                    </td>
-                                    <td>{{ $proveedor->name}}</td>
-                                    <td>{{ $proveedor->apellidos}}</td>
-                                    <td>
-                                        <p>
-                                            {{ $proveedor->telefono_1}} <br>
-                                            {{ $proveedor->telefono_2}}
-                                        </p>
-                                            
-                                    </td>
-                                    <td>{{ $proveedor->email}}</td>
-                                    <td>
-                                        <p> {{ $proveedor->calle}} {{ $proveedor->numero_int}} {{ $proveedor->numero_ext}}  </br>
-                                        {{ $proveedor->colonia}} {{ $proveedor->municipio}} </p>
-                                    </td>
+                                @foreach ($proveedores as $proveedor)
 
-                                    <td class="text-center">
-                                      <a href="{{ route('provedore.restore', [$proveedor->id]) }}" 
-                                         class="btn btn-sm bg-establecer restablecer_proveedor">
-                                        <i class="fas fa-trash-restore"></i>
-                                        Restablecer
-                                        </a>    
-                                    </div>
+                                    <tr @if ($proveedor->deleted_at) class="table-danger" @endif>
+                                        <td>{{ $proveedor->id }}</td>
+                                        <td><img src="{{ asset('img/proveedores/' . $proveedor->imagen_proveedor) }}"
+                                                class="rounded mx-auto img-thumbnail" width="80">
+                                        </td>
+                                        <td>{{ $proveedor->name }}</td>
+                                        <td>{{ $proveedor->apellidos }}</td>
+                                        <td>
+                                            <p>
+                                                {{ $proveedor->telefono_1 }} <br>
+                                                {{ $proveedor->telefono_2 }}
+                                            </p>
 
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td>{{ $proveedor->email }}</td>
+                                        <td>
+                                            <p> {{ $proveedor->calle }} {{ $proveedor->numero_int }}
+                                                {{ $proveedor->numero_ext }} </br>
+                                                {{ $proveedor->colonia }} {{ $proveedor->municipio }} </p>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <a href="{{ route('provedore.restore', [$proveedor->id]) }}"
+                                                class="btn btn-sm bg-establecer restablecer_proveedor">
+                                                <i class="fas fa-trash-restore"></i>
+                                                Restablecer
+                                            </a>
+                                        </td>
+                                    </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
                     </div>
@@ -68,8 +67,8 @@
             </div>
         </div>
     </div>
-    @section('alerta')
-   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@section('alerta')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(".restablecer_proveedor").click(function(e) {
             e.preventDefault();
@@ -85,9 +84,9 @@
             }).then((result) => {
                 if (result.value) {
                     Swal.fire(
-                    'Éxito',
-                    'Este registro fue restablecido.',
-                    'success'
+                        'Éxito',
+                        'Este registro fue restablecido.',
+                        'success'
                     )
                     document.location.href = href;
                 }

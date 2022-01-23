@@ -136,20 +136,20 @@
                                     </a>
                                 </li>
 
+
+                                <li class="nav-item">
+                                    <a href="{{ route('usuarios.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-user-friends nav-icon"></i>
+                                        <p class="text-black">Usuarios</p>
+                                    </a>
+                                </li>
+
                                 <li class="nav-item">
                                     <a href="#" class="nav-link text-secondary">
                                         <i class="fas fa-users nav-icon"></i>
                                         <p class="text-black">Colaboradores</p>
                                     </a>
                                 </li>
-
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link text-secondary">
-                                        <i class="fas fa-user-friends nav-icon"></i>
-                                        <p class="text-black">Usuarios</p>
-                                    </a>
-                                </li>
-                               
 
                             </ul>
                         </li>
