@@ -13,4 +13,9 @@ class Product extends Model
         'status','name','descripcion', 'imagen_producto','category_id',
         'unidad_id'
     ];
+
+    public function producCategory()
+    {
+        return $this->hasOne(Category::class, 'id', 'categoty_id');
+    }
 }

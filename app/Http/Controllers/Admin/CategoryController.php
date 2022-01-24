@@ -35,11 +35,11 @@ class CategoryController extends Controller
 
     public function store(CategoryRequest $request)
     {    
-        $fecha  =   Carbon::parse($request->fecha_de_compra)->formatLocalized('%A %d, %B %Y'); 
+        // $fecha  =   Carbon::parse($request->fecha_de_compra)->formatLocalized('%A %d, %B %Y'); 
         $categoria = new Category();
         $categoria->name = $request->nombre;
         $categoria->slug = Str::slug($request->nombre);
-        $categoria->fecha_compra = $fecha;
+        $categoria->fecha_compra = $request->fecha_de_compra;
 
         //  dd($categoria);
         if ($categoria->save()) {
@@ -65,11 +65,14 @@ class CategoryController extends Controller
 
         $categoria = Category::findOrFail($id);
         $request->validate([
-            'nombre' => 'required|unique:categories,name,' .$categoria->id
+            'nombre' => 'required|unique:categories,name,' .$categoria->id,
+            'fecha_de_compra' => 'required'
         ]);
 
         $categoria->name = $request->nombre;
         $categoria->status = $request->estatus;
+        $categoria->fecha_compra = $request->fecha_de_compra;
+
       
         if ($categoria->save()) {
             toastr()->info('Categoria actualizada');

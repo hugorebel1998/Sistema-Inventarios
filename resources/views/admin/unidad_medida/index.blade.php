@@ -13,22 +13,6 @@
                     </div>
                     <div class="d-flex flex-row-reverse mr-4">
                         <div class="p-2">
-                            <div class="dropdown dropleft">
-                                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-sort-amount-up-alt"></i> Filtrar por
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-users-slash"></i>
-                                         Unidades de medida eliminadas
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="p-2">
                             <a href="{{ route('unidad.create') }}" class="btn bg-indigo">
                                 <i class="fas fa-plus"></i>
                                 Agregar
@@ -50,7 +34,7 @@
                             <tbody>
                                  @foreach ($unidades as $unidad)
                                      
-                                <tr>
+                                <tr @if ($unidad->status == 'Activo') class='table-success' @else  class='table-danger'@endif>
                                     <td>{{ $unidad->id}}</td>
                                     <td>{{ $unidad->name}}</td>
                                     <td>{{ $unidad->prefijo}}</td>
@@ -73,7 +57,7 @@
                                                 </a>
                                             </div>
                                             <div class="p-2">
-                                               <form action="#" method="post" class="eliminar_unidad">
+                                               <form action="{{ route('unidad.delete',[$unidad->id]) }}" method="post" class="eliminar_unidad">
                                                    @csrf
                                                    @method('delete')
                                                    <button type="submit" class="btn btn-sm bg-delete" title="Eliminar">

@@ -34,7 +34,7 @@ Route::get('/colaboradore/restablecer/{user}', 'ColaboradorController@restore')-
 
 
 // Rutas de proveedores
-Route::get('/proveedores/index', 'ProveedorController@index')->name('proveedores.index');
+Route::get('/proveedores', 'ProveedorController@index')->name('proveedores.index');
 Route::get('/proveedores/create', 'ProveedorController@create')->name('proveedor.create');
 Route::post('/proveedor/store', 'ProveedorController@store')->name('proveedor.store');
 Route::get('/proveedor/edit/{proveedor}', 'ProveedorController@edit')->name('proveedor.edit');
@@ -43,8 +43,10 @@ Route::delete('/proveedor/delete/{proveedor}', 'ProveedorController@delete')->na
 Route::get('/proveedores/eliminados', 'ProveedorController@indexDelete')->name('provedores.index.delete');
 Route::get('/proveedores/restablecer/{proveedor}', 'ProveedorController@restore')->name('provedore.restore');
 
+
+
 //Rutas de categorias 
-Route::get('/categorias/index', 'CategoryController@index')->name('categorias.index');
+Route::get('/categorias', 'CategoryController@index')->name('categorias.index');
 Route::get('/categorias/create', 'CategoryController@create')->name('categoria.create');
 Route::post('/categorias/store', 'CategoryController@store')->name('categoria.store');
 Route::get('/categorias/edit/{categoria}', 'CategoryController@edit')->name('categoria.edit');
@@ -54,15 +56,14 @@ Route::get('/categorias/eliminados', 'CategoryController@indexDelete')->name('ca
 Route::get('/categorias/restablecer/{categoria}', 'CategoryController@restore')->name('categoria.restore');
 
 
-//Rutas de categorias 
+//Rutas de unidades de medida
 Route::get('/unidades', 'UnidadMedidaController@index')->name('unidades.index');
 Route::get('/unidad/create', 'UnidadMedidaController@create')->name('unidad.create');
 Route::post('/unidad/store', 'UnidadMedidaController@store')->name('unidad.store');
 Route::get('/unidad/edit/{unidad}', 'UnidadMedidaController@edit')->name('unidad.edit');
 Route::put('/unidad/update', 'UnidadMedidaController@update')->name('unidad.update');
 Route::delete('/unidad/delete/{unidad}', 'UnidadMedidaController@delete')->name('unidad.delete');
-Route::get('/unidades/eliminados', 'UnidadMedidaController@indexDelete')->name('unidades.index.delete');
-Route::get('/unidad/restablecer/{unidad}', 'UnidadMedidaController@restore')->name('unidad.restore');
+
 
 
 

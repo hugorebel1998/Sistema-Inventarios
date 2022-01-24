@@ -25,7 +25,7 @@ class CreateSuppliersTable extends Migration
             $table->string('numero_ext');
             $table->string('colonia');
             $table->string('municipio');
-            $table->string('imagen_proveedor');
+            $table->string('imagen_proveedor')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

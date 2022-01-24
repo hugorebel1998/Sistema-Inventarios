@@ -39,6 +39,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
+                       
                         <table class="order-table table-striped table table-hover" cellspacing="0" width="100%" id="example2">
                             <thead class="text-white" style="background: #3f4570">
                                 <tr>
@@ -57,7 +58,7 @@
                                 <tr>
                                     <td>{{ $producto->id}}</td>
                                     <td>{{ $producto->name}}</td>
-                                    <td>{{ $producto->categori_id}}</td>
+                                    <td>{{ $producto->producCategory}}</td>
                                     <td>{{ $producto->unidad_id}}</td>
                                    <td>
                                     <td><img src="{{ asset('img/productos/' . $producto->imagen_producto) }}"

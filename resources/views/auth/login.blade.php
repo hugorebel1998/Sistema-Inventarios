@@ -7,7 +7,6 @@
     <div class="login-box">
         <div class="login-logo mb-3">
             {{-- <img src="{{ asset('img/habanero-logo.png')}}" alt="Habanero House" width="250"> --}}
-            <h2 class="text-login">Sistema de inventario</h2>
         </div>
         <div class="card mt-4">
             <div class="card-body login-card-body">

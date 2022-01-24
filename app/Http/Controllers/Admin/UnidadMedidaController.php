@@ -69,7 +69,26 @@ class UnidadMedidaController extends Controller
 
     public function delete($id)
     {
-        $unidad = UnidaMedida::findOrFail($id);
+        $unidad = UnidaMedida::find($id);
+        if($unidad->delete()){
+            return redirect()->back();
+
+        }else{
+            toastr()->error('Algo salio mal!!!');
+            return redirect()->back();
+        }
 
     }
+    public function indexDelete()
+    {
+        $unidades = UnidaMedida::onlyTrashed()->get();
+        return view('admin.unidad_medida.inDelete', compact('unidades'));   
+    }
+
+    public function restore($id)
+    {
+      UnidaMedida::onlyTrashed()->findOrFail($id)->restore();
+      return redirect()->to(route('unidades.index'));
+    }
+    
 }

@@ -25,6 +25,8 @@
         href="{{ asset('admin-lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('admin-lte/dist/css/adminlte.min.css') }}">
+     <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('admin-lte/plugins/summernote/summernote-bs4.min.css') }}">
     <!-- Style css -->
     <link rel="stylesheet" href="{{ asset('admin-lte/dist/css/adminlte.css') }}">
     <!-- Select2 -->
@@ -61,7 +63,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link text-white" data-toggle="dropdown" href="#">
-                        <span class="mr-2"><b>|</b></span>
+                        <span class="mr-2"><b> {{ Auth::user()->perfil}} |</b></span>
                         <span class="mr-2"><b>Perfil</b></span>
                         <i class="fas fa-user-shield"></i>
                         <span class="badge badge-warning navbar-badge"></span>
@@ -73,7 +75,7 @@
                         <span class="dropdown-header">{{ auth()->user()->email }}</span>
                         <div class="dropdown-divider"></div>
                         <a href="" class="dropdown-item">
-                            <i class="fas fa-user-edit"></i> Mi perfil
+                          <i class="fas fa-user-edit"></i> Mi perfil
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href=""
@@ -183,7 +185,7 @@
 
                                 <li class="nav-item">
                                     <a href="{{ route('unidades.index') }}" class="nav-link text-secondary">
-                                        <i class="fas fa-users nav-icon"></i>
+                                        <i class="fab fa-unity nav-icon"></i>
                                         <p class="text-black">Unidades de medida</p>
                                     </a>
                                 </li>
@@ -284,6 +286,8 @@
     <script src="{{ asset('admin-lte/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }} "></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('admin-lte/dist/js/adminlte.min.js') }}"></script>
+    <!-- Summernote -->
+    <script src="{{ asset('admin-lte/plugins/summernote/summernote-bs4.min.js') }}"></script>   
     <!-- TableJS -->
     <script src="{{ asset('js/table.js') }}"></script>
     <!--Select2JS-->
@@ -295,8 +299,14 @@
     <script>
         $(function() {
             bsCustomFileInput.init();
+
+               // Summernote
+           $('#summernote').summernote()
+  
         });
     </script>
+
+
 
 
     <!-- Page specific script -->

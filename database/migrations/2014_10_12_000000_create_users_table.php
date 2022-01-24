@@ -25,8 +25,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('imagen_usuario')->nullable();
             $table->string('permiso')->nullable();
-            $table->unsignedBigInteger('colaborador_id')->nullable();
-            $table->foreign('colaborador_id')->references('id')->on('collaborators');
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

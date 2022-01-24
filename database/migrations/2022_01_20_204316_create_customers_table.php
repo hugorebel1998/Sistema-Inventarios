@@ -18,12 +18,11 @@ class CreateCustomersTable extends Migration
             $table->enum('status',['Activo', 'Bloqueado'])->default('Activo');
             $table->string('name');
             $table->string('apellidos');
-            $table->string('tipo_documento');
+            $table->string('tipo_documento')->nullable();
             $table->string('telefono', 10);
             $table->string('direccion');
-            $table->string('fecha_nacimiento');
             $table->string('email')->unique();
-            $table->string('imagen_cliente');
+            $table->string('imagen_cliente')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

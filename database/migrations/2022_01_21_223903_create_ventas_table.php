@@ -20,7 +20,7 @@ class CreateVentasTable extends Migration
             $table->string('tipo_comprobante');
             $table->string('serie_comprobante');
             $table->string('num_comprobante');
-            $table->date('fecha');
+            $table->dateTime('fecha');
             $table->decimal('impuesto', 11,2);
             $table->string('total', 11,2);
             $table->unsignedBigInteger('pedido_id');

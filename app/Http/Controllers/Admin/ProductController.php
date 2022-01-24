@@ -26,7 +26,8 @@ class ProductController extends Controller
     public function create()
     {
         $categorias = Category::where('status', 'Activo')->get();
-        $unidades = UnidaMedida::all();
+        // dd($categorias);
+        $unidades = UnidaMedida::where('status', 'Activo')->get();
         return view('admin.productos.create', compact('categorias', 'unidades'));
     }
 
@@ -35,7 +36,7 @@ class ProductController extends Controller
         $producto = new Product();
         $producto->name = $request->nombre;
         $producto->imagen_producto  = $request->imagen_producto;
-        $producto->categoria_id = $request->categoria;
+        $producto->category_id = $request->categoria;
         $producto->unidad_id = $request->unidad;
         $producto->descripcion = $request->descripción;
 
@@ -48,6 +49,7 @@ class ProductController extends Controller
             $producto->imagen_producto = $nombreImagen;
         }
 
+      
         if ($producto->save()) {
             toastr()->success('Nuevo producto registrado');
             return redirect()->to(route('productos.index'));

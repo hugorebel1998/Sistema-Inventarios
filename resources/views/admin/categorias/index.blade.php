@@ -55,7 +55,9 @@
                                 <tr>
                                     <td>{{ $categoria->id}}</td>
                                     <td>{{ $categoria->name}}</td>
-                                    <td>{{ $categoria->fecha_compra}}</td>
+                                    <td>
+                                        {{ \Carbon\Carbon::parse($categoria->fecha_compra)->formatLocalized('%A %d, %B %Y')}}
+                                    </td>
                                     <td>
                                         @if ($categoria->status == 'Activo')
                                         <p class="badge rounded-pill bg-success">

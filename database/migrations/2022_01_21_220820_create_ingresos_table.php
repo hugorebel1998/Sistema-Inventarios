@@ -19,7 +19,7 @@ class CreateIngresosTable extends Migration
             $table->string('tipo_comprobante');
             $table->string('serie_comprobante');
             $table->string('num_comprobante');
-            $table->string('fecha');
+            $table->dateTime('fecha');
             $table->decimal('impuesto',8,2);
             $table->decimal('total',8,2);
             $table->unsignedBigInteger('user_id');

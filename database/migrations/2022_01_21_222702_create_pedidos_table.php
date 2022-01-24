@@ -17,7 +17,7 @@ class CreatePedidosTable extends Migration
             $table->id();
             $table->enum('status', ['Pendiente', 'Aprovado']);
             $table->string('tipo_pedido');
-            $table->date('fecha');
+            $table->dateTime('fecha');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('user_id')->references('id')->on('users');

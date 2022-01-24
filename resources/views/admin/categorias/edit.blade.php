@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="fecha_de_compra" class="text-label">Fecha de descuento</label>
-                                    <input type="text" disabled name="fecha_de_compra" class="form-control"
+                                    <input type="date" name="fecha_de_compra" class="form-control"
                                         value="{{ $categoria->fecha_compra }}">
                                 </div>
                             </div>

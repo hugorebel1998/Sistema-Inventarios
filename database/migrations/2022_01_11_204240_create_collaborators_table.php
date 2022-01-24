@@ -21,9 +21,11 @@ class CreateCollaboratorsTable extends Migration
             $table->string('tipo_documento');
             $table->string('telefono', 10);
             $table->string('direccion');
-            $table->string('fecha_nacimiento');
+            $table->date('fecha_nacimiento');
             $table->string('email');
             $table->string('imagen_colavorador');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();
         });
