@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->enum('status',['Activo', 'Bloqueado'])->default('Activo');
+            $table->enum('status',['Activo', 'No activo'])->default('Activo');
             $table->string('name');
             $table->text('descripcion');
             $table->string('imagen_producto');

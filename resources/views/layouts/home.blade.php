@@ -153,6 +153,43 @@
 
                             </ul>
                         </li>
+
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-store-alt"></i>
+                                <p>
+                                    Almacén
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a href="{{ route('categorias.index') }}" class="nav-link text-secondary">
+                                        <i class="far fa-list-alt nav-icon"></i>
+                                        <p class="text-black">Categorias</p>
+                                    </a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a href="{{ route('productos.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-boxes nav-icon"></i>
+                                        <p class="text-black">Productos</p>
+                                    </a>
+                                </li>
+
+
+                                
+
+                                <li class="nav-item">
+                                    <a href="{{ route('unidades.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-users nav-icon"></i>
+                                        <p class="text-black">Unidades de medida</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
                        
                         <li class="nav-item ">
                             <a href="#" class="nav-link active">
@@ -180,56 +217,6 @@
 
                                
 
-                            </ul>
-                        </li>
-
-                       
-
-                        <li class="nav-item ">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-sort-amount-up"></i>
-                                <p>
-                                    Categorias
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('categorias.index') }}" class="nav-link text-secondary">
-                                        <i class="far fa-list-alt nav-icon"></i>
-                                        <p class="text-black">Gestión categorias</p>
-                                    </a>
-                                </li>  
-                                <li class="nav-item">
-                                    <a href="" class="nav-link text-secondary">
-                                        <i class="fas fa-plus nav-icon"></i>
-                                        <p>Crear categoria</p>
-                                    </a>
-                                </li>                              
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-boxes"></i>
-                                <p>
-                                    Productos
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link text-secondary">
-                                        <i class="fas fa-list-ul nav-icon"></i>
-                                        <p>Gestión productos</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="" class="nav-link text-secondary">
-                                        <i class="fas fa-plus nav-icon"></i>
-                                        <p>Crear producto</p>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
 

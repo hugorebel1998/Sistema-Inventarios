@@ -15,7 +15,7 @@ class CreateIngresosTable extends Migration
     {
         Schema::create('ingresos', function (Blueprint $table) {
             $table->id();
-            $table->string('status');
+            $table->enum('status',['Activo', 'No activo']);
             $table->string('tipo_comprobante');
             $table->string('serie_comprobante');
             $table->string('num_comprobante');

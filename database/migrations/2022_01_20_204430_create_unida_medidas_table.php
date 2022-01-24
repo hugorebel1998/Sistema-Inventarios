@@ -15,7 +15,7 @@ class CreateUnidaMedidasTable extends Migration
     {
         Schema::create('unida_medidas', function (Blueprint $table) {
             $table->id();
-            $table->string('status');
+            $table->enum('status',['Activo', 'No activo'])->default('Activo');
             $table->string('name');
             $table->string('prefijo');
             $table->timestamps();

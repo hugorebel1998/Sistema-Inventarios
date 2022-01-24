@@ -54,7 +54,28 @@ Route::get('/categorias/eliminados', 'CategoryController@indexDelete')->name('ca
 Route::get('/categorias/restablecer/{categoria}', 'CategoryController@restore')->name('categoria.restore');
 
 
+//Rutas de categorias 
+Route::get('/unidades', 'UnidadMedidaController@index')->name('unidades.index');
+Route::get('/unidad/create', 'UnidadMedidaController@create')->name('unidad.create');
+Route::post('/unidad/store', 'UnidadMedidaController@store')->name('unidad.store');
+Route::get('/unidad/edit/{unidad}', 'UnidadMedidaController@edit')->name('unidad.edit');
+Route::put('/unidad/update', 'UnidadMedidaController@update')->name('unidad.update');
+Route::delete('/unidad/delete/{unidad}', 'UnidadMedidaController@delete')->name('unidad.delete');
+Route::get('/unidades/eliminados', 'UnidadMedidaController@indexDelete')->name('unidades.index.delete');
+Route::get('/unidad/restablecer/{unidad}', 'UnidadMedidaController@restore')->name('unidad.restore');
 
+
+
+
+// Rutas de proveedores
+Route::get('/productos', 'ProductController@index')->name('productos.index');
+Route::get('/producto/create', 'ProductController@create')->name('producto.create');
+Route::post('/producto/store', 'ProductController@store')->name('producto.store');
+Route::get('/producto/edit/{product}', 'ProductController@edit')->name('producto.edit');
+Route::put('/producto/update', 'ProductController@update')->name('producto.update');
+Route::delete('/producto/delete/{product}', 'ProductController@delete')->name('producto.delete');
+Route::get('/produstos/eliminados', 'ProductController@indexDelete')->name('productos.index.delete');
+Route::get('/producto/restablecer/{product}', 'ProductController@restore')->name('producto.restore');
 
 
 

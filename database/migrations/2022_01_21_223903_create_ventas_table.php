@@ -15,7 +15,7 @@ class CreateVentasTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->string('status');
+            $table->enum('status',['Activo', 'No activo']);
             $table->string('tipo_venta');
             $table->string('tipo_comprobante');
             $table->string('serie_comprobante');
