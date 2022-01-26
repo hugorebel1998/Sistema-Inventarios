@@ -3,9 +3,9 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-11">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <div class="card">
                             <div class="card-header bg-card-header">
                                 <div class="card-title"><i class="fas fa-seedling"></i> Editar información general</div>
@@ -36,7 +36,7 @@
                                         </div>
 
                                         <div class="col-md-3">
-                                            <label for="porcentaje_impuesto" class="text-label">Porcentaje de impuesto</label>
+                                            <label for="porcentaje_impuesto" class="text-label">% Impuesto</label>
                                             <input type="number" name="porcentaje_impuesto"
                                                 class="form-control @error('porcentaje_impuesto') is-invalid @enderror"
                                                 value="{{ $general->porcentaje_impuesto }}">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-4 col-sm-6">
                         <div class="card">
                             <div class="card-header bg-card-header">
                                 <div class="card-title"><i class="fas fa-camera-retro"></i> Imagen destacada</div>

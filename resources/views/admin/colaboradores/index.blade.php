@@ -3,7 +3,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-11">
+            <div class="col-md-12">
                 <div class="card card-indigo card-outline transparente shadow-lg">
                     <div class="card-header">
                         <b class="card-title-text">
@@ -12,7 +12,9 @@
                         </b>
                     </div>
                     <div class="d-flex flex-row-reverse mr-4">
-
+                        <div class="p-2">
+                            <a href="{{ route('colaborador.excel') }}" class="btn bg-excel" title="Exportar a excel"><i class="far fa-file-excel"></i> Excel</a>
+                        </div>
                         <div class="p-2">
 
                             <div class="dropdown dropleft">
@@ -59,11 +61,11 @@
                                     <tr>
                                         <td>{{ $empleado->id }}</td>
                                         <td>
-                                            @if (is_null($empleado->imagen_usuario))
-                                                <img src="{{ asset('img/users/sin_asignar/foto.png') }}"
+                                            @if (is_null($empleado->imagen_colavorador))
+                                                <img src="{{ asset('img/empleados/sin_asignar/foto.png') }}"
                                                     class="rounded mx-auto img-thumbnail" width="80">
                                             @else
-                                                <img src="{{ asset('img/users/' . $empleado->imagen_usuario) }}"
+                                                <img src="{{ asset('img/empleados/' . $empleado->imagen_colavorador) }}"
                                                     class="rounded mx-auto img-thumbnail" width="80">
                                             @endif
                                         </td>
@@ -71,7 +73,7 @@
                                         <td>{{ $empleado->apellidos}}</td>
                                         <td>{{ $empleado->telefono }}</td>
                                         <td>{{ $empleado->email }}</td>
-                                        <td>
+                                        <td  @if ($empleado->status == 'Activo') class="table-success"  @else class="table-danger" @endif>
                                             @if ($empleado->status == 'Activo')
                                                 <p class="badge rounded-pill bg-success">
                                                     {{ $empleado->status }}
@@ -90,6 +92,7 @@
                                                         <i class="far fa-edit"></i>
                                                     </a>
                                                 </div>
+
                                                 <div class="p-2">
                                                     <form action="{{ route('colaborador.delete', [$empleado->id]) }}" method="post" class="eliminar_usuario">
                                                         @csrf
@@ -99,6 +102,7 @@
                                                         </button>
                                                     </form>
                                                 </div>
+                                               
                                             </div>
 
                                         </td>

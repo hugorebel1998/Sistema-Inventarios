@@ -34,7 +34,7 @@
                             <tbody>
                                  @foreach ($unidades as $unidad)
                                      
-                                <tr @if ($unidad->status == 'Activo') class='table-success' @else  class='table-danger'@endif>
+                                <tr>
                                     <td>{{ $unidad->id}}</td>
                                     <td>{{ $unidad->name}}</td>
                                     <td>{{ $unidad->prefijo}}</td>

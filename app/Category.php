@@ -12,4 +12,6 @@ class Category extends Model
     protected $fillable = [
         'status','name','fecha_de_compra','slug'
       ];
+
+      
 }

@@ -22,7 +22,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ route('provedores.index.delete') }}">
+                                    <a class="dropdown-item" href="{{ route('productos.index.delete') }}">
                                         <i class="fas fa-users-slash"></i>
                                         Productos eliminados
                                     </a>
@@ -58,25 +58,44 @@
                                 <tr>
                                     <td>{{ $producto->id}}</td>
                                     <td>{{ $producto->name}}</td>
-                                    <td>{{ $producto->producCategory}}</td>
-                                    <td>{{ $producto->unidad_id}}</td>
-                                   <td>
+                                    @foreach ($categorias as $categoria)
+                                         @if ($producto->category_id == $categoria->id)
+                                         <td>{{ $categoria->name }}</td>
+                                         @endif
+                                    @endforeach 
+                                    @foreach ($unidades as $unidad)
+                                    @if ($producto->unidad_id == $unidad->id)
+                                    <td>{{ $unidad->name}}</td>
+                                    @endif
+                                    @endforeach     
+                                   
+                                   
                                     <td><img src="{{ asset('img/productos/' . $producto->imagen_producto) }}"
                                         class="rounded mx-auto img-thumbnail" width="80">
                                     </td>
-                                   </td>
-                                    <td>{{ $producto->status}}</td>
+                                  
+                                    <td @if ($producto->status == 'Activo') class='table-success'  @else class='table-danger' @endif>
+                                        @if ($producto->status == 'Activo')
+                                        <p class="badge rounded-pill bg-success">
+                                            {{ $producto->status}}
+                                        </p>
+                                        @elseif ($producto->status == 'No activo')
+                                        <span class="badge rounded-pill bg-danger">
+                                            {{ $producto->status}}
+                                        </span>
+                                        @endif
+                                    </td>
                                     
 
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center">
                                             <div class="p-2">
-                                                <a href="#" class="btn btn-sm bg-edit" title="Editar">
+                                                <a href="{{ route('producto.edit', [$producto->id]) }}" class="btn btn-sm bg-edit" title="Editar">
                                                     <i class="far fa-edit"></i>
                                                 </a>
                                             </div>
                                             <div class="p-2">
-                                               <form action="#" method="post" class="eliminar_producto">
+                                               <form action="{{ route('producto.delete', [$producto->id]) }}" method="post" class="eliminar_producto">
                                                    @csrf
                                                    @method('delete')
                                                    <button type="submit" class="btn btn-sm bg-delete" title="Eliminar">

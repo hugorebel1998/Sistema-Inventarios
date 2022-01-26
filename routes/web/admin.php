@@ -30,6 +30,7 @@ Route::put('/colaboradore/update', 'ColaboradorController@update')->name('colabo
 Route::delete('/colaboradore/delete/{usser}', 'ColaboradorController@delete')->name('colaborador.delete');
 Route::get('/colaboradores/eliminados', 'ColaboradorController@indexDelete')->name('colaboradores.index.delete');
 Route::get('/colaboradore/restablecer/{user}', 'ColaboradorController@restore')->name('colaborador.restore');
+Route::get('/colaborador/exportar-excel', 'ColaboradorController@expotExcel')->name('colaborador.excel');
 
 
 
@@ -68,7 +69,7 @@ Route::delete('/unidad/delete/{unidad}', 'UnidadMedidaController@delete')->name(
 
 
 
-// Rutas de proveedores
+// Rutas de productos
 Route::get('/productos', 'ProductController@index')->name('productos.index');
 Route::get('/producto/create', 'ProductController@create')->name('producto.create');
 Route::post('/producto/store', 'ProductController@store')->name('producto.store');

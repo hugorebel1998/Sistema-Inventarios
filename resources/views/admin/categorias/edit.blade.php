@@ -16,7 +16,7 @@
                             <div class="row">
                                 <div class="col-md-6 ">
                                     <div class="form-group">
-                                        <label>¿En descuento?</label>
+                                        <label>Estatus</label>
                                         <select name="estatus"
                                             class="custom-select select2bs4 @error('estatus') is-invalid @enderror"
                                             style="width: 100%;">

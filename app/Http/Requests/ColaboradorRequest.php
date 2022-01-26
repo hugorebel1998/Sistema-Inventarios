@@ -24,7 +24,6 @@ class ColaboradorRequest extends FormRequest
     public function rules()
     {
         return [
-            'estatus' => 'required',
             'nombre' => 'required',
             'apellidos' => 'required',
             'tipo_documento' => 'required',

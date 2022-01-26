@@ -8,9 +8,10 @@ use Illuminate\Support\Str;
 use App\User;
 use Illuminate\Http\Request;
 
+
+
 class UserController extends Controller
 {
-
 
 
     public function index()
@@ -29,11 +30,11 @@ class UserController extends Controller
         $usuario = new User();
         $usuario->status = $request->estatus;
         $usuario->perfil = $request->perfil;
-        $usuario->name = $request->nombre;
-        $usuario->apellido_p = $request->apellido_paterno;
-        $usuario->apellido_m = $request->apellido_materno;
+        $usuario->name = Str::title($request->nombre);
+        $usuario->apellido_p = Str::title($request->apellido_paterno);
+        $usuario->apellido_m = Str::title($request->apellido_materno);
         $usuario->telefono = $request->teléfono;
-        $usuario->email = $request->correo_electrónico;
+        $usuario->email = Str::lower($request->correo_electrónico);
         $usuario->password = $request->contraseña;
         $usuario->permiso = null;
 
@@ -76,12 +77,12 @@ class UserController extends Controller
         ]);
 
         $usuario->status = $request->estatus;
-        $usuario->name = $request->nombre;
-        $usuario->apellido_p = $request->apellido_paterno;
-        $usuario->apellido_m = $request->apellido_materno;
+        $usuario->name =  Str::title($request->nombre);
+        $usuario->apellido_p =  Str::title($request->apellido_paterno);
+        $usuario->apellido_m =  Str::title($request->apellido_materno);
         $usuario->perfil = $request->perfil;
         $usuario->telefono = $request->teléfono;
-        $usuario->email = $request->correo_electrónico;
+        $usuario->email = Str::lower($request->correo_electrónico);
 
 
         if ($request->hasFile('imagen')) {
@@ -125,4 +126,5 @@ class UserController extends Controller
       return redirect()->to(route('usuarios.index'));
 
     }
+
 }

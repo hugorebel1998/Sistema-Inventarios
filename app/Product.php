@@ -14,8 +14,5 @@ class Product extends Model
         'unidad_id'
     ];
 
-    public function producCategory()
-    {
-        return $this->hasOne(Category::class, 'id', 'categoty_id');
-    }
+  
 }

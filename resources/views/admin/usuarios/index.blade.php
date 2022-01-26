@@ -3,7 +3,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-11">
+            <div class="col-md-12">
                 <div class="card card-indigo card-outline transparente shadow-lg">
                     <div class="card-header">
                         <b class="card-title-text">
@@ -45,10 +45,11 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col"></th>
+                                    <th scope="col">Perfil</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Apellidos</th>
                                     <th scope="col">Teléfono</th>
-                                    <th scope="col">Correo electrónico</th>
+                                    {{-- <th scope="col">Correo electrónico</th> --}}
                                     <th scope="col">Estatus</th>
                                     <th scope="col" class="text-center">Acciones</th>
                                 </tr>
@@ -56,7 +57,7 @@
                             <tbody>
                                 @foreach ($usuarios as $usuario)
 
-                                    <tr  @if ($usuario->status == 'Activo') class="table-success"  @else class="table-danger" @endif>
+                                    <tr>
                                         <td>{{ $usuario->id }}</td>
                                         <td>
                                             @if (is_null($usuario->imagen_usuario))
@@ -67,11 +68,12 @@
                                                     class="rounded mx-auto img-thumbnail" width="80">
                                             @endif
                                         </td>
+                                        <td><b>{{ $usuario->perfil }}</b> </td>
                                         <td>{{ $usuario->name }}</td>
                                         <td>{{ $usuario->apellido_p }} {{ $usuario->apellido_m }}</td>
                                         <td>{{ $usuario->telefono }}</td>
-                                        <td>{{ $usuario->email }}</td>
-                                        <td>
+                                        {{-- <td>{{ $usuario->email }}</td> --}}
+                                        <td @if ($usuario->status == 'Activo') class="table-success"  @else class="table-danger" @endif>
                                             @if ($usuario->status == 'Activo')
                                                 <p class="badge rounded-pill bg-success">
                                                     {{ $usuario->status }}
