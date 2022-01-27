@@ -181,10 +181,7 @@
                                         <i class="fas fa-boxes nav-icon"></i>
                                         <p class="text-black">Productos</p>
                                     </a>
-                                </li>
-
-
-                                
+                                </li>                
 
                                 <li class="nav-item">
                                     <a href="{{ route('unidades.index') }}" class="nav-link text-secondary">
@@ -195,12 +192,12 @@
 
                             </ul>
                         </li>
-                       
+
                         <li class="nav-item ">
                             <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-user-friends"></i>
+                                <i class="nav-icon fab fa-salesforce"></i>
                                 <p>
-                                    Proveedores
+                                    Ventas
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -209,23 +206,21 @@
                                 <li class="nav-item">
                                     <a href="{{ route('proveedores.index') }}" class="nav-link text-secondary">
                                         <i class="far fa-list-alt nav-icon"></i>
-                                        <p class="text-black">Gestión proveedores</p>
+                                        <p class="text-black">Proveedores</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="" class="nav-link text-secondary">
-                                        <i class="fas fa-plus nav-icon"></i>
-                                        <p>Crear proveedor</p>
+                                    <a href="#" class="nav-link text-secondary">
+                                        <i class="fas fa-boxes nav-icon"></i>
+                                        <p class="text-black">Productos</p>
                                     </a>
-                                </li>
+                                </li>                
 
-                               
+                                
 
                             </ul>
-                        </li>
-
-                        
+                        </li> 
                     </ul>
                 </nav>
             </div>
