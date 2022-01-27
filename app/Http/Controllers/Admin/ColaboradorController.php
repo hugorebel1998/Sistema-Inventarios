@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ColaboradorRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\CollaboratorExport;
 
 
 class ColaboradorController extends Controller
@@ -32,14 +34,15 @@ class ColaboradorController extends Controller
     public function store(ColaboradorRequest $request)
     {
         $empleado = new Collaborator();
-        $empleado->status = $request->estatus;
-        $empleado->name = $request->nombre;
-        $empleado->apellidos = $request->apellidos;
-        $empleado->tipo_documento = $request->tipo_documento;
+        // $empleado->status = $request->estatus;
+        $empleado->name = Str::title($request->nombre);
+        $empleado->apellidos = Str::title($request->apellidos);
+        $empleado->tipo_documento = Str::upper($request->tipo_documento);
         $empleado->telefono = $request->teléfono;
-        $empleado->direccion = $request->dirección;
+        $empleado->direccion = Str::title($request->dirección);
         $empleado->fecha_nacimiento = $request->fecha_nacimiento;
-        $empleado->email = $request->correo_electrónico;
+        $empleado->email = Str::lower($request->correo_electrónico);
+        $empleado->user_id = auth()->user()->id;
 
         if ($request->hasFile('imagen')) {
             $imagen = $request->file('imagen');
@@ -49,7 +52,7 @@ class ColaboradorController extends Controller
             $empleado->imagen_colavorador = $nombreImagen;
         }
 
-        // dd($empleado);
+        //dd($empleado);
         if ($empleado->save()) {
             toastr()->success('Nuevo colaborador registrado');
             return redirect()->to(route('colaboradores.index'));
@@ -82,14 +85,14 @@ class ColaboradorController extends Controller
             'correo_electrónico' => 'required|email|unique:collaborators,email,' . $empleado->id
         ]);
 
-        $empleado->status = $request->estatus;
-        $empleado->name = $request->nombre;
-        $empleado->apellidos = $request->apellidos;
-        $empleado->tipo_documento = $request->tipo_documento;
+        $empleado->name = Str::title($request->nombre);
+        $empleado->apellidos = Str::title($request->apellidos);
+        $empleado->tipo_documento = Str::upper($request->tipo_documento);
         $empleado->telefono = $request->teléfono;
-        $empleado->direccion = $request->dirección;
+        $empleado->direccion = Str::title($request->dirección);
         $empleado->fecha_nacimiento = $request->fecha_nacimiento;
-        $empleado->email = $request->correo_electrónico;
+        $empleado->email = Str::lower($request->correo_electrónico);
+        $empleado->user_id = auth()->user()->id;
 
         if ($request->hasFile('imagen')) {
             $imagen = $request->file('imagen');
@@ -133,4 +136,10 @@ class ColaboradorController extends Controller
       return redirect()->to(route('colaboradores.index'));
 
     }
+
+    public function expotExcel()
+    {
+        return Excel::download(new CollaboratorExport, 'colaboradores.xlsx');
+    }
 }
+

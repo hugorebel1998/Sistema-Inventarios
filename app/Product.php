@@ -14,7 +14,5 @@ class Product extends Model
         'unidad_id'
     ];
 
-    public function categoriaProduct(){
-        return $this->hasOne(Category:: class, 'id', 'category_id');
-    }
+  
 }

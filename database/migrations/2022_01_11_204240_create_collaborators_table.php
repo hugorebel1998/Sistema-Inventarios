@@ -23,8 +23,8 @@ class CreateCollaboratorsTable extends Migration
             $table->string('direccion');
             $table->date('fecha_nacimiento');
             $table->string('email');
-            $table->string('imagen_colavorador');
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->string('imagen_colavorador')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();

@@ -8,7 +8,7 @@
                     <div class="card-header">
                         <b class="card-title-text">
                             <i class="fas fa-user-friends"></i>
-                            Gestión de  productos
+                            Gestión de productos
                         </b>
                     </div>
                     <div class="d-flex flex-row-reverse mr-4">
@@ -22,7 +22,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ route('provedores.index.delete') }}">
+                                    <a class="dropdown-item" href="{{ route('productos.index.delete') }}">
                                         <i class="fas fa-users-slash"></i>
                                         Productos eliminados
                                     </a>
@@ -39,8 +39,9 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                       
-                        <table class="order-table table-striped table table-hover" cellspacing="0" width="100%" id="example2">
+
+                        <table class="order-table table-striped table table-hover" cellspacing="0" width="100%"
+                            id="example2">
                             <thead class="text-white" style="background: #3f4570">
                                 <tr>
                                     <th scope="col">ID</th>
@@ -53,39 +54,59 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                 @foreach ($productos as $producto)
-                                     
-                                <tr>
-                                    <td>{{ $producto->id}}</td>
-                                    <td>{{ $producto->name}}</td>
-                                    <td></td>
-                                    <td>{{ $producto->unidad_id}}</td>
-                                    <td><img src="{{ asset('img/productos/' . $producto->imagen_producto) }}"
-                                        class="rounded mx-auto img-thumbnail" width="80">
-                                    </td>
-                                    <td>{{ $producto->status}}</td>
-                                    
+                                @foreach ($productos as $producto)
 
-                                    <td class="text-center">
-                                        <div class="d-flex justify-content-center">
-                                            <div class="p-2">
-                                                <a href="#" class="btn btn-sm bg-edit" title="Editar">
-                                                    <i class="far fa-edit"></i>
-                                                </a>
-                                            </div>
-                                            <div class="p-2">
-                                               <form action="#" method="post" class="eliminar_producto">
-                                                   @csrf
-                                                   @method('delete')
-                                                   <button type="submit" class="btn btn-sm bg-delete" title="Eliminar">
-                                                    <i class="far fa-trash-alt"></i>
-                                                   </button>
-                                               </form>
-                                            </div>
-                                          </div>
+                                    <tr>
+                                        <td>{{ $producto->id }}</td>
+                                        <td>{{ $producto->name }}</td>
+                                        @foreach ($categorias as $categoria)
+                                            @if ($producto->category_id == $categoria->id)
+                                                <td>{{ $categoria->name }}</td>
+                                            @endif
+                                        @endforeach
+                                        @foreach ($unidades as $unidad)
+                                            @if ($producto->unidad_id == $unidad->id)
+                                                <td>{{ $unidad->name }}</td>
+                                            @endif
+                                        @endforeach
+                                        <td><img src="{{ asset('img/productos/' . $producto->imagen_producto) }}"
+                                                class="rounded mx-auto img-thumbnail" width="80">
+                                        </td>
+                                        <td @if ($producto->status == 'Activo') class='table-success'  @else class='table-danger' @endif>
+                                            @if ($producto->status == 'Activo')
+                                                <p class="badge rounded-pill bg-success">
+                                                    {{ $producto->status }}
+                                                </p>
+                                            @elseif ($producto->status == 'No activo')
+                                                <span class="badge rounded-pill bg-danger">
+                                                    {{ $producto->status }}
+                                                </span>
+                                            @endif
+                                        </td>
 
-                                    </td>
-                                </tr>
+
+                                        <td class="text-center">
+                                            <div class="d-flex justify-content-center">
+                                                <div class="p-2">
+                                                    <a href="{{ route('producto.edit', [$producto->id]) }}"
+                                                        class="btn btn-sm bg-edit" title="Editar">
+                                                        <i class="far fa-edit"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="p-2">
+                                                    <form action="{{ route('producto.delete', [$producto->id]) }}"
+                                                        method="post" class="eliminar_producto">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-sm bg-delete" title="Eliminar">
+                                                            <i class="far fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
                                 @endforeach
 
                             </tbody>
@@ -95,7 +116,7 @@
             </div>
         </div>
     </div>
-    @section('alerta')
+@section('alerta')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $('.eliminar_producto').submit(function(e) {

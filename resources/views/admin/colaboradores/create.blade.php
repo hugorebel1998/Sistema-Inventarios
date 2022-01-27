@@ -12,23 +12,8 @@
                         <form action="{{ route('colaborador.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="text-label">Estatus</label>
-                                        <select name="estatus"
-                                            class="custom-select select2bs4 @error('estatus') is-invalid @enderror"
-                                            style="width: 100%;">
-                                            <option value="" selected>-- Selecciona una opción--</option>
-                                            <option value="Activo" @if (old('estatus') == 'Activo') selected="selected" @endif }}>Activo</option>
-                                            <option value="No activo" @if (old('estatus') == 'No activo') selected="selected" @endif }}>No activo</option>
-                                        </select>
-                                        @error('estatus')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <label for="nombre" class="text-label">Nombre</label>
                                     <input type="text" name="nombre"
                                         class="form-control @error('nombre') is-invalid @enderror"
@@ -38,7 +23,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <label for="apellidos" class="text-label">Apellidos</label>
                                     <input type="text" name="apellidos"
                                         class="form-control @error('apellidos') is-invalid @enderror"
@@ -48,7 +33,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-6 mt-2">
+                                <div class="col-md-6 mt-3">
                                     <label for="tipo_documento" class="text-label">Tipo de documento</label>
                                     <input type="text" name="tipo_documento"
                                         class="form-control @error('tipo_documento') is-invalid @enderror"
@@ -58,7 +43,7 @@
                                     @enderror
                                 </div>
                                 
-                                <div class="col-md-6 mt-2">
+                                <div class="col-md-6 mt-3">
                                     <label for="teléfono" class="text-label">Teléfono</label>
                                     <input type="number" name="teléfono"
                                         class="form-control @error('teléfono') is-invalid @enderror"

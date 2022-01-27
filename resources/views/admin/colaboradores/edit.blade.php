@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-11">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <div class="card">
                             <div class="card-header bg-card-header">
                                 <div class="card-title"><i class="fas fa-user-edit"></i> Editar colaborador</div>
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="card">
                             <div class="card-header bg-card-header">
                                 <div class="card-title"><i class="fas fa-camera-retro"></i> Imagen destacada</div>
@@ -142,7 +142,7 @@
                                         <img src="{{ asset('img/empleados/' . $empleado->imagen_colavorador) }}"
                                             class="rounded mx-auto d-block img-proveedor">
                                     @else
-                                        <img src="{{ asset('img/users/sin_asignar/foto.jpg') }}"
+                                        <img src="{{ asset('img/empleados/sin_asignar/foto.png') }}"
                                             class="rounded mx-auto d-block img-proveedor">
                                     @endif
                                 </div>

@@ -3,7 +3,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-11">
+            <div class="col-md-12">
                 <div class="card card-indigo card-outline transparente shadow-lg">
                     <div class="card-header">
                         <b class="card-title-text">
@@ -31,22 +31,22 @@
                             <tbody>
                                 @foreach ($empleados as $empleado)
 
-                                    <tr  @if ($empleado->deleted_at) class="table-danger" @endif>
+                                    <tr>
                                         <td>{{ $empleado->id }}</td>
                                         <td>
-                                            @if (is_null($empleado->imagen_usuario))
-                                                <img src="{{ asset('img/users/sin_asignar/foto.png') }}"
-                                                    class="rounded mx-auto img-thumbnail" width="80">
-                                            @else
-                                                <img src="{{ asset('img/users/' . $empleado->imagen_usuario) }}"
-                                                    class="rounded mx-auto img-thumbnail" width="80">
-                                            @endif
+                                            @if (is_null($empleado->imagen_colavorador))
+                                            <img src="{{ asset('img/empleados/sin_asignar/foto.png') }}"
+                                                class="rounded mx-auto img-thumbnail" width="80">
+                                        @else
+                                            <img src="{{ asset('img/empleados/' . $empleado->imagen_colavorador) }}"
+                                                class="rounded mx-auto img-thumbnail" width="80">
+                                        @endif
                                         </td>
                                         <td>{{ $empleado->name }}</td>
                                         <td>{{ $empleado->apellidos}}</td>
                                         <td>{{ $empleado->telefono }}</td>
                                         <td>{{ $empleado->email }}</td>
-                                        <td>
+                                        <td @if ($empleado->deleted_at) class="table-danger" @endif>
                                             @if ($empleado->deleted_at)
                                                 <p class="badge rounded-pill bg-danger">
                                                     No activo

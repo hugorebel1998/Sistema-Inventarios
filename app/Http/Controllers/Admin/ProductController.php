@@ -21,11 +21,10 @@ class ProductController extends Controller
     public function index()
     {
         $productos = Product::all();
-        $categorias = DB::table('categories')
-            ->join('products', 'categories.id', '=', 'products.category_id')
-             ->get();
-        dd($categorias);
-        return view('admin.productos.index', compact('productos'));
+        $categorias = Category::where('status','Activo')->get();
+        $unidades = UnidaMedida::where('status','Activo')->get();
+        
+        return view('admin.productos.index', compact('productos', 'categorias', 'unidades'));
     }
 
     public function create()
@@ -67,8 +66,11 @@ class ProductController extends Controller
     public function edit($id)
     {
 
+       
         $producto = Product::findOrFail($id);
-        return view('admin.productos.edit', compact('producto'));
+        $categorias = Category::where('status','Activo')->get();
+        $unidades = UnidaMedida::where('status','Activo')->get();
+        return view('admin.productos.edit', compact('producto','categorias', 'unidades'));
     }
 
     public function update(ProductRequest $request)
@@ -77,8 +79,7 @@ class ProductController extends Controller
         $producto = Product::findOrFail($id);
         $producto->status = $request->estatus;
         $producto->name = $request->nombre;
-        $producto->imagen_producto  = $request->imagen_producto;
-        $producto->categoria_id = $request->categoria;
+        $producto->category_id = $request->categoria;
         $producto->unidad_id = $request->unidad;
         $producto->descripcion = $request->descripción;
 
@@ -93,7 +94,7 @@ class ProductController extends Controller
 
         if ($producto->save()) {
             toastr()->info('Producto actualizado');
-            return redirect()->to(route('proveedores.index'));
+            return redirect()->to(route('productos.index'));
         } else {
             toastr()->error('Algo salio mal!!!');
             return redirect()->back();
@@ -114,7 +115,13 @@ class ProductController extends Controller
     public function indexDelete()
     {
         $productos = Product::onlyTrashed()->get();
+<<<<<<< HEAD
         return view('admin.productos.inDelete', compact('productos'));
+=======
+        $categorias = Category::all();
+        $unidades = UnidaMedida::all();
+        return view('admin.productos.inDelete', compact('productos', 'categorias', 'unidades'));   
+>>>>>>> bddb414ecefcd94b83520a6046b04661dc1f20eb
     }
 
     public function restore($id)
