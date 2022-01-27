@@ -10,12 +10,11 @@ class Product extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'status','name','descripcion', 'imagen_producto','category_id',
+        'status','name','descripcion', 'imagen_producto','category_id ',
         'unidad_id'
     ];
 
-    public function producCategory()
-    {
-        return $this->hasOne(Category::class, 'id', 'categoty_id');
+    public function categoriaProduct(){
+        return $this->hasOne(Category:: class, 'id', 'category_id');
     }
 }

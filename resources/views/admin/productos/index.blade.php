@@ -58,13 +58,11 @@
                                 <tr>
                                     <td>{{ $producto->id}}</td>
                                     <td>{{ $producto->name}}</td>
-                                    <td>{{ $producto->producCategory}}</td>
+                                    <td></td>
                                     <td>{{ $producto->unidad_id}}</td>
-                                   <td>
                                     <td><img src="{{ asset('img/productos/' . $producto->imagen_producto) }}"
                                         class="rounded mx-auto img-thumbnail" width="80">
                                     </td>
-                                   </td>
                                     <td>{{ $producto->status}}</td>
                                     
 

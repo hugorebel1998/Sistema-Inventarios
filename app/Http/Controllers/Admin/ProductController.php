@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Product;
 use App\UnidaMedida;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -20,6 +21,10 @@ class ProductController extends Controller
     public function index()
     {
         $productos = Product::all();
+        $categorias = DB::table('categories')
+            ->join('products', 'categories.id', '=', 'products.category_id')
+             ->get();
+        dd($categorias);
         return view('admin.productos.index', compact('productos'));
     }
 
@@ -49,7 +54,7 @@ class ProductController extends Controller
             $producto->imagen_producto = $nombreImagen;
         }
 
-      
+
         if ($producto->save()) {
             toastr()->success('Nuevo producto registrado');
             return redirect()->to(route('productos.index'));
@@ -109,13 +114,12 @@ class ProductController extends Controller
     public function indexDelete()
     {
         $productos = Product::onlyTrashed()->get();
-        return view('admin.productos.inDelete', compact('productos'));   
+        return view('admin.productos.inDelete', compact('productos'));
     }
 
     public function restore($id)
     {
-      Product::onlyTrashed()->findOrFail($id)->restore();
-      return redirect()->to(route('productos.index'));
-
+        Product::onlyTrashed()->findOrFail($id)->restore();
+        return redirect()->to(route('productos.index'));
     }
 }
