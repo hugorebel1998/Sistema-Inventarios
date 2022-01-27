@@ -30,7 +30,7 @@ Route::put('/colaboradore/update', 'ColaboradorController@update')->name('colabo
 Route::delete('/colaboradore/delete/{usser}', 'ColaboradorController@delete')->name('colaborador.delete');
 Route::get('/colaboradores/eliminados', 'ColaboradorController@indexDelete')->name('colaboradores.index.delete');
 Route::get('/colaboradore/restablecer/{user}', 'ColaboradorController@restore')->name('colaborador.restore');
-Route::get('/colaborador/exportar-excel', 'ColaboradorController@expotExcel')->name('colaborador.excel');
+// Route::get('/colaborador/exportar-excel', 'ColaboradorController@expotExcel')->name('colaborador.excel');
 
 
 

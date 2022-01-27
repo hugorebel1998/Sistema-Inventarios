@@ -12,9 +12,9 @@
                         </b>
                     </div>
                     <div class="d-flex flex-row-reverse mr-4">
-                        <div class="p-2">
+                        {{-- <div class="p-2">
                             <a href="{{ route('colaborador.excel') }}" class="btn bg-excel" title="Exportar a excel"><i class="far fa-file-excel"></i> Excel</a>
-                        </div>
+                        </div> --}}
                         <div class="p-2">
 
                             <div class="dropdown dropleft">
