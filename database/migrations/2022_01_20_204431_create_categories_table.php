@@ -16,7 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->enum('status',['Activo', 'Bloqueado'])->default('Activo');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->date('fecha_compra');
             $table->string('slug');
             $table->softDeletes();

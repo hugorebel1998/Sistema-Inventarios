@@ -78,7 +78,7 @@ Route::put('/producto/update', 'ProductController@update')->name('producto.updat
 Route::delete('/producto/delete/{product}', 'ProductController@delete')->name('producto.delete');
 Route::get('/produstos/eliminados', 'ProductController@indexDelete')->name('productos.index.delete');
 Route::get('/producto/restablecer/{product}', 'ProductController@restore')->name('producto.restore');
-
+Route::get('/productos/categoria-productos/{id}', 'ProductController@productsCategegory')->name('admin.productos.categoria');
 
 
 

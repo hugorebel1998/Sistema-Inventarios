@@ -85,6 +85,9 @@
                                                    </button>
                                                </form>
                                             </div>
+                                            <div class="p-2">
+                                               <a href="{{ route('admin.productos.categoria', [$categoria->id]) }}" title="Ver productos" class="btn btn-sm bg-ver"><i class="far fa-eye"></i></a>
+                                            </div>
                                           </div>
 
                                     </td>

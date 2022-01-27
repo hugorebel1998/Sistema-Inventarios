@@ -125,4 +125,12 @@ class ProductController extends Controller
       return redirect()->to(route('productos.index'));
 
     }
+
+    public function productsCategegory($id){
+        $productoCategories = Product::where('category_id', $id)->get();
+        $categorias = Category::all();
+        $unidades = UnidaMedida::all();
+        
+        return view('admin.productos.productcategory', compact('productoCategories', 'categorias', 'unidades'));
+    }
 }
