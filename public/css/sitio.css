@@ -83,6 +83,13 @@
     font-size: 15px;
 }
 
+.text-imagen{
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: center;
+    color: rgb(174, 174, 174);
+}
+
 /* Imagen de formulario editar */
 img.img-proveedor{
     position: relative;

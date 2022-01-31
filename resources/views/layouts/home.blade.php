@@ -128,7 +128,7 @@
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-laptop-house"></i>
                                 <p>
-                                    Mantenimiento
+                                    Administración
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -141,6 +141,12 @@
                                     </a>
                                 </li>
 
+                                <li class="nav-item">
+                                    <a href="{{ route('proveedores.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-truck nav-icon"></i>
+                                        <p class="text-black">Proveedores</p>
+                                    </a>
+                                </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('usuarios.index') }}" class="nav-link text-secondary">
@@ -156,6 +162,12 @@
                                     </a>
                                 </li>
 
+                                <li class="nav-item">
+                                    <a href="{{ route('clientes.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-child nav-icon"></i>
+                                        <p class="text-black">Clientes</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -203,12 +215,6 @@
                             </a>
                             <ul class="nav nav-treeview">
 
-                                <li class="nav-item">
-                                    <a href="{{ route('proveedores.index') }}" class="nav-link text-secondary">
-                                        <i class="far fa-list-alt nav-icon"></i>
-                                        <p class="text-black">Proveedores</p>
-                                    </a>
-                                </li>
 
                                 <li class="nav-item">
                                     <a href="#" class="nav-link text-secondary">

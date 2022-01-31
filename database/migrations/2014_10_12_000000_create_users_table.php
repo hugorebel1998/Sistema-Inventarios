@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('apellido_p');
             $table->string('apellido_m');
-            $table->enum('perfil',['Administrador', 'Colaborador']);
+            $table->enum('perfil',['Administrador', 'Gerente']);
             $table->string('telefono', 10);
             $table->string('email')->unique();
             $table->string('password');

@@ -36,10 +36,9 @@
                                                 <select name="perfil"
                                                     class="custom-select select2bs4 @error('perfil') is-invalid @enderror"
                                                     style="width: 100%;">
-                                                    <option value="" selected>-- Selecciona una opción--</option>
                                                     <option value="Administrador" @if ($usuario->perfil == 'Administrador') selected="selected" @endif }}>Administrador
                                                     </option>
-                                                    <option value="Colaborador" @if ($usuario->perfil == 'Colaborador') selected="selected" @endif }}>Colaborador
+                                                    <option value="Gerente" @if ($usuario->perfil == 'Gerente') selected="selected" @endif }}>Gerente
                                                     </option>
                                                 </select>
                                                 @error('perfil')

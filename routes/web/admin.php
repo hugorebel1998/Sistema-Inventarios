@@ -45,6 +45,18 @@ Route::get('/proveedores/eliminados', 'ProveedorController@indexDelete')->name('
 Route::get('/proveedores/restablecer/{proveedor}', 'ProveedorController@restore')->name('provedore.restore');
 
 
+//Rutas de clientes
+Route::get('/clientes', 'ClienteController@index')->name('clientes.index');
+Route::get('/clientes/create', 'ClienteController@create')->name('clientes.create');
+Route::post('/clientes/store', 'ClienteController@store')->name('clientes.store');
+Route::get('/clientes/edit/{cliente}', 'ClienteController@edit')->name('clientes.edit');
+Route::put('/clientes/update', 'ClienteController@update')->name('clientes.update');
+Route::delete('/clientes/delete/{cliente}', 'ClienteController@delete')->name('clientes.delete');
+Route::get('/clientes/eliminados', 'ClienteController@indexDelete')->name('clientes.index.delete');
+Route::get('/clientes/restablecer/{cliente}', 'ClienteController@restore')->name('cliente.restore');
+
+
+
 
 //Rutas de categorias 
 Route::get('/categorias', 'CategoryController@index')->name('categorias.index');
