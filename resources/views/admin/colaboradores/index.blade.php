@@ -45,10 +45,9 @@
                             id="example2">
                             <thead class="text-white" style="background: #3f4570">
                                 <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">#</th>
                                     <th scope="col"></th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Apellidos</th>
                                     <th scope="col">Teléfono</th>
                                     <th scope="col">Correo electrónico</th>
                                     <th scope="col">Estatus</th>
@@ -63,14 +62,13 @@
                                         <td>
                                             @if (is_null($empleado->imagen_colavorador))
                                                 <img src="{{ asset('img/empleados/sin_asignar/foto.png') }}"
-                                                    class="rounded mx-auto img-thumbnail" width="80">
+                                                    class="rounded mx-auto img-thumbnail" width="60">
                                             @else
                                                 <img src="{{ asset('img/empleados/' . $empleado->imagen_colavorador) }}"
-                                                    class="rounded mx-auto img-thumbnail" width="80">
+                                                    class="rounded mx-auto img-thumbnail" width="60">
                                             @endif
                                         </td>
-                                        <td>{{ $empleado->name }}</td>
-                                        <td>{{ $empleado->apellidos}}</td>
+                                        <td>{{ $empleado->name }} {{ $empleado->apellidos}}</td>
                                         <td>{{ $empleado->telefono }}</td>
                                         <td>{{ $empleado->email }}</td>
                                         <td  @if ($empleado->status == 'Activo') class="table-success"  @else class="table-danger" @endif>

@@ -28,6 +28,10 @@ class ProductRequest extends FormRequest
             'descripción' => 'required',
             'categoria' => 'required',
             'unidad' => 'required',
+            'costo' => 'required',
+            'precio_venta' => 'required',
+            'existencia' => 'required',
+            'nivel_existencia' => 'required'
         ];
     }
 }

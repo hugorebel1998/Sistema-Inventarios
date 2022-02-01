@@ -18,8 +18,8 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Tipo de impuesto</th>
-                                    <th scope="col">Porcentaje</th>
+                                    {{-- <th scope="col">Tipo de impuesto</th>
+                                    <th scope="col">Porcentaje</th> --}}
                                     <th scope="col">Moneda</th>
                                     <th scope="col"></th>
                                     <th scope="col" class="text-center">Acciones</th>
@@ -31,8 +31,8 @@
                                 <tr>
                                     <td>{{ $general->id}}</td>
                                     <td>{{ $general->name}}</td>
-                                    <td>{{ $general->impuesto}}</td>
-                                    <td>{{ $general->porcentaje_impuesto }} %</td>
+                                    {{-- <td>{{ $general->impuesto}}</td>
+                                    <td>{{ $general->porcentaje_impuesto }} %</td> --}}
                                     <td>{{ $general->moneda }}</td>
                                     <td>
                                         @if (is_null($general->logo))

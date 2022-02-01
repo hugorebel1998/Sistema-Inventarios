@@ -17,6 +17,10 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->enum('status',['Activo', 'No activo'])->default('Activo');
             $table->string('name');
+            $table->decimal('costo',10,2)->default(0);
+            $table->decimal('precio_venta',10,2)->default(0);
+            $table->integer('existencia');
+            $table->integer('nivel_existencia');
             $table->text('descripcion');
             $table->string('imagen_producto');
             $table->unsignedBigInteger('category_id');

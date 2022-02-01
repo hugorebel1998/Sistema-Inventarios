@@ -17,10 +17,9 @@
                             id="example2">
                             <thead class="text-white" style="background: #3f4570">
                                 <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">#</th>
                                     <th scope="col"></th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Apellidos</th>
                                     <th scope="col">Teléfono</th>
                                     <th scope="col">Correo electrónico</th>
                                     <th scope="col">Dirreción</th>
@@ -41,8 +40,7 @@
                                             class="rounded mx-auto img-thumbnail" width="80">
                                             @endif
                                         </td>
-                                        <td>{{ $proveedor->name }}</td>
-                                        <td>{{ $proveedor->apellidos }}</td>
+                                        <td>{{ $proveedor->name }} {{ $proveedor->apellidos }}</td>
                                         <td>
                                             <p>
                                                 {{ $proveedor->telefono_1 }} <br>

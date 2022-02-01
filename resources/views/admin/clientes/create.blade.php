@@ -13,7 +13,7 @@
                         @csrf
                         <div class="row">
 
-                            <div class="col-md-6 mt-4">
+                            <div class="col-md-6">
                                 <label for="nombre" class="text-label">Nombre</label>
                                 <input type="text" name="nombre"
                                     class="form-control @error('nombre') is-invalid @enderror"
@@ -22,7 +22,7 @@
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="col-md-6 mt-4">
+                            <div class="col-md-6">
                                 <label for="apellidos" class="text-label">Apellidos</label>
                                 <input type="text" name="apellidos"
                                     class="form-control @error('apellidos') is-invalid @enderror"

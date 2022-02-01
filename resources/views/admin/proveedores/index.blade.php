@@ -42,10 +42,9 @@
                         <table class="order-table table-striped table table-hover" cellspacing="0" width="100%" id="example2">
                             <thead class="text-white" style="background: #3f4570">
                                 <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">#</th>
                                     <th scope="col"></th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Apellidos</th>
                                     <th scope="col">Teléfono</th>
                                     <th scope="col">Correo electrónico</th>
                                     <th scope="col">Dirreción</th>
@@ -60,14 +59,13 @@
                                     <td>
                                         @if (is_null($proveedor->imagen_proveedor))
                                         <img src="{{ asset('img/proveedores/sin_asignar/foto.jpg') }}"
-                                        class="rounded mx-auto img-thumbnail" width="80">
+                                        class="rounded mx-auto img-thumbnail" width="60">
                                         @else  
                                         <img src="{{ asset('img/proveedores/' . $proveedor->imagen_proveedor) }}"
-                                        class="rounded mx-auto img-thumbnail" width="80">
+                                        class="rounded mx-auto img-thumbnail" width="60">
                                         @endif
                                     </td>
-                                    <td>{{ $proveedor->name}}</td>
-                                    <td>{{ $proveedor->apellidos}}</td>
+                                    <td>{{ $proveedor->name}} {{ $proveedor->apellidos}}</td>
                                     <td>
                                         <p>
                                             {{ $proveedor->telefono_1}} <br>

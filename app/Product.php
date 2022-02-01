@@ -10,7 +10,7 @@ class Product extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'status','name','descripcion', 'imagen_producto','category_id',
+        'status','name','costo','precio_venta','existencia','nivel_existencia','descripcion', 'imagen_producto','category_id',
         'unidad_id'
     ];
 

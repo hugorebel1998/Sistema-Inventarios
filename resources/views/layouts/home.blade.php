@@ -143,12 +143,7 @@
                                     </a>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a href="{{ route('categorias.index') }}" class="nav-link text-secondary">
-                                        <i class="fas fa-tags nav-icon"></i>
-                                        <p class="text-black">Categorias</p>
-                                    </a>
-                                </li>
+                                
                                 
                                 <li class="nav-item">
                                     <a href="{{ route('usuarios.index') }}" class="nav-link text-secondary">
@@ -175,70 +170,41 @@
 
                         <li class="nav-item ">
                             <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-boxes"></i>
+                                <i class="nav-icon fas fa-truck-loading"></i>
                                 <p>
-                                    Productos
+                                    Inventario
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('categorias.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-tags nav-icon"></i>
+                                        <p class="text-black">Categorias</p>
+                                    </a>
+                                </li>
 
+                                 
+                                <li class="nav-item">
+                                    <a href="{{ route('unidades.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-bars nav-icon"></i>
+                                        <p class="text-black">Unidades medida</p>
+                                    </a>
+                                </li> 
                                
                                 <li class="nav-item">
                                     <a href="{{ route('productos.index') }}" class="nav-link text-secondary">
                                         <i class="fas fa-boxes nav-icon"></i>
                                         <p class="text-black">Productos</p>
                                     </a>
-                                </li>                
-
-                                <li class="nav-item">
-                                    <a href="{{ route('productos.index') }}" class="nav-link text-secondary">
-                                        <i class="fas fa-boxes nav-icon"></i>
-                                        <p class="text-black">Productos en almacen</p>
-                                    </a>
-                                </li> 
-
-                                <li class="nav-item">
-                                    <a href="{{ route('productos.index') }}" class="nav-link text-secondary">
-                                        <i class="fas fa-fire-alt nav-icon"></i>
-                                        <p class="text-black">Lo mas vendido</p>
-                                    </a>
-                                </li>  
-
-
-                                <li class="nav-item">
-                                    <a href="{{ route('productos.index') }}" class="nav-link text-secondary">
-                                        <i class="fab fa-stack-overflow nav-icon"></i>
-                                        <p class="text-black">Productos en stock min</p>
-                                    </a>
                                 </li>  
                                
+
 
                             </ul>
                         </li>
 
-                        <li class="nav-item ">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fab fa-salesforce"></i>
-                                <p>
-                                    Ventas
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-
-
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link text-secondary">
-                                        <i class="fas fa-boxes nav-icon"></i>
-                                        <p class="text-black">Productos</p>
-                                    </a>
-                                </li>                
-
-                                
-
-                            </ul>
-                        </li> 
+                        
                         <li class="nav-item ">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-sliders-h"></i>

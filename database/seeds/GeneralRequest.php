@@ -14,8 +14,8 @@ class GeneralRequest extends Seeder
     {
         Ajuste::create([
            'name' => 'CMS', 
-           'impuesto' => 'IVA',
-           'porcentaje_impuesto' => 16.00,
+        //    'impuesto' => 'IVA',
+        //    'porcentaje_impuesto' => 16.00,
            'moneda' => 'MXN',
         ]);
     }
