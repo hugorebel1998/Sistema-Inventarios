@@ -198,12 +198,28 @@
                                         <p class="text-black">Productos</p>
                                     </a>
                                 </li>  
-                               
-
-
                             </ul>
                         </li>
 
+
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-funnel-dollar"></i>
+                                <p>
+                                    Denominaciones
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('denominaciones.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-coins nav-icon"></i>
+                                        <p class="text-black">Monedas</p>
+                                    </a>
+                                </li>              
+
+                            </ul>
+                        </li> 
                         
                         <li class="nav-item ">
                             <a href="#" class="nav-link active">

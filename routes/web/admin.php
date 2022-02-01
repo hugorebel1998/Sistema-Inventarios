@@ -10,6 +10,21 @@ Route::get('/geneal/edit/{general}', 'GeneralController@edit')->name('general.ed
 Route::put('/general/update', 'GeneralController@update')->name('general.update');
 
 
+//Rutas denominaciones
+Route::get('/denominaciones', 'MonedaController@index')->name('denominaciones.index');
+Route::get('/denominaciones/create', 'MonedaController@create')->name('denominacion.create');
+Route::post('/denominaciones/store', 'MonedaController@store')->name('denominacion.store');
+Route::get('/denominaciones/edit/{moneda}', 'MonedaController@edit')->name('denominacion.edit');
+Route::put('/denominaciones/update', 'MonedaController@update')->name('denominacion.update');
+Route::delete('/denominaciones/delete/{moneda}', 'MonedaController@delete')->name('denominacion.delete');
+
+
+
+
+
+
+
+
 //Rutas de usuarios
 Route::get('/usuarios', 'UserController@index')->name('usuarios.index');
 Route::get('/usuario/create', 'UserController@create')->name('usuario.create');
@@ -76,9 +91,6 @@ Route::post('/unidad/store', 'UnidadMedidaController@store')->name('unidad.store
 Route::get('/unidad/edit/{unidad}', 'UnidadMedidaController@edit')->name('unidad.edit');
 Route::put('/unidad/update', 'UnidadMedidaController@update')->name('unidad.update');
 Route::delete('/unidad/delete/{unidad}', 'UnidadMedidaController@delete')->name('unidad.delete');
-
-
-
 
 
 // Rutas de productos
