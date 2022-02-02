@@ -50,6 +50,7 @@
     color: white !important;
 }
 
+
 .bg-excel{
     background: #27BB00 !important;
     color: white !important;
@@ -80,6 +81,13 @@
 .text-label{
     color: rgb(35, 90, 145);
     font-size: 15px;
+}
+
+.text-imagen{
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: center;
+    color: rgb(174, 174, 174);
 }
 
 /* Imagen de formulario editar */

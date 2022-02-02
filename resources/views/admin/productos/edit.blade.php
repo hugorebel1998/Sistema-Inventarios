@@ -16,7 +16,7 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="text-label">Estatus</label>
                                             <select name="estatus"
@@ -30,7 +30,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <input type="hidden" name="product_id" value="{{ $producto->id }}">
                                         <label for="nombre" class="text-label">Nombre</label>
                                         <input type="text" name="nombre"
@@ -41,7 +41,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="imagen" class="text-label">Imagen destacada</label>
                                             <div class="custom-file">
@@ -105,6 +105,46 @@
                                             <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="costo" class="text-label">Costo</label>
+                                        <input type="number" name="costo"
+                                            class="form-control @error('costo') is-invalid @enderror"
+                                            value="{{ $producto->costo }}">
+                                        @error('costo')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+        
+                                    <div class="col-md-6">
+                                        <label for="precio_venta" class="text-label">Precio venta</label>
+                                        <input type="number" name="precio_venta"
+                                            class="form-control @error('precio_venta') is-invalid @enderror"
+                                            value="{{ $producto->precio_venta }}">
+                                        @error('precio_venta')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+        
+                                    <div class="col-md-6 mt-3">
+                                        <label for="existencia" class="text-label">Existencia</label>
+                                        <input type="number" name="existencia"
+                                            class="form-control @error('existencia') is-invalid @enderror"
+                                            value="{{ $producto->existencia }}">
+                                        @error('existencia')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+        
+                                    <div class="col-md-6 mt-3">
+                                        <label for="nivel_existencia" class="text-label">Nivel de existencia</label>
+                                        <input type="number" name="nivel_existencia"
+                                            class="form-control @error('nivel_existencia') is-invalid @enderror"
+                                            value="{{ $producto->nivel_existencia }}">
+                                        @error('nivel_existencia')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="col-md-12">

@@ -43,8 +43,8 @@ class GeneralController extends Controller
         }
 
         $general->name = $request->nombre;
-        $general->impuesto = $request->impuesto;
-        $general->porcentaje_impuesto = $request->porcentaje_impuesto;
+        // $general->impuesto = $request->impuesto;
+        // $general->porcentaje_impuesto = $request->porcentaje_impuesto;
         $general->moneda = $request->moneda;
 
         if($general->save()){

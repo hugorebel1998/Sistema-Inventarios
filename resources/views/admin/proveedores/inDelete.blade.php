@@ -3,7 +3,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-11">
+            <div class="col-md-12">
                 <div class="card card-indigo card-outline transparente shadow-lg">
                     <div class="card-header">
                         <b class="card-title-text">
@@ -17,10 +17,9 @@
                             id="example2">
                             <thead class="text-white" style="background: #3f4570">
                                 <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">#</th>
                                     <th scope="col"></th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Apellidos</th>
                                     <th scope="col">Teléfono</th>
                                     <th scope="col">Correo electrónico</th>
                                     <th scope="col">Dirreción</th>
@@ -32,11 +31,16 @@
 
                                     <tr @if ($proveedor->deleted_at) class="table-danger" @endif>
                                         <td>{{ $proveedor->id }}</td>
-                                        <td><img src="{{ asset('img/proveedores/' . $proveedor->imagen_proveedor) }}"
-                                                class="rounded mx-auto img-thumbnail" width="80">
+                                        <td>
+                                            @if (is_null($proveedor->imagen_proveedor))
+                                            <img src="{{ asset('img/proveedores/sin_asignar/foto.jpg') }}"
+                                            class="rounded mx-auto img-thumbnail" width="80">
+                                            @else  
+                                            <img src="{{ asset('img/proveedores/' . $proveedor->imagen_proveedor) }}"
+                                            class="rounded mx-auto img-thumbnail" width="80">
+                                            @endif
                                         </td>
-                                        <td>{{ $proveedor->name }}</td>
-                                        <td>{{ $proveedor->apellidos }}</td>
+                                        <td>{{ $proveedor->name }} {{ $proveedor->apellidos }}</td>
                                         <td>
                                             <p>
                                                 {{ $proveedor->telefono_1 }} <br>

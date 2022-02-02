@@ -17,14 +17,12 @@
                             id="example2">
                             <thead class="text-white" style="background: #3f4570">
                                 <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">#</th>
                                     <th scope="col"></th>
                                     <th scope="col">Perfil</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Apellidos</th>
                                     <th scope="col">Teléfono</th>
-                                    {{-- <th scope="col">Correo electrónico</th> --}}
-                                    <th scope="col">Estatus</th>
+                                    <th scope="col">Correo electrónico</th>
                                     <th scope="col" class="text-center">Acciones</th>
                                 </tr>
                             </thead>
@@ -42,18 +40,21 @@
                                                     class="rounded mx-auto img-thumbnail" width="80">
                                             @endif
                                         </td>
-                                        <td><b>{{ $usuario->perfil }}</b> </td>
-                                        <td>{{ $usuario->name }}</td>
-                                        <td>{{ $usuario->apellido_p }} {{ $usuario->apellido_m }}</td>
+                                        <td @if ($usuario->deleted_at) class="table-danger" @endif>
+                                        <p>
+                                            <b>{{ $usuario->perfil }}</b>
+                                        </p>
+                                        @if ($usuario->deleted_at)
+                                        <p class="badge rounded-pill bg-danger">
+                                            No activo
+                                        </p>
+                                        @endif
+
+                                         </td>
+                                        <td>{{ $usuario->name }} {{ $usuario->apellido_p }} {{ $usuario->apellido_m }}</td>
                                         <td>{{ $usuario->telefono }}</td>
-                                        {{-- <td>{{ $usuario->email }}</td> --}}
-                                        <td  @if ($usuario->deleted_at) class="table-danger" @endif>
-                                            @if ($usuario->deleted_at)
-                                                <p class="badge rounded-pill bg-danger">
-                                                    No activo
-                                                </p>
-                                            @endif
-                                        </td>
+                                        <td>{{ $usuario->email }}</td>
+                                        
 
                                         <td class="text-center">
                                             <a href="{{ route('usuario.restore', [$usuario->id]) }}"

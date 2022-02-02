@@ -21,8 +21,8 @@ class CreateSuppliersTable extends Migration
             $table->string('telefono_1', 10);
             $table->string('telefono_2', 10)->nullable();
             $table->string('calle');
-            $table->string('numero_int');
-            $table->string('numero_ext');
+            $table->string('numero_int')->nullable();
+            $table->string('numero_ext')->nullable();
             $table->string('colonia');
             $table->string('municipio');
             $table->string('imagen_proveedor')->nullable();

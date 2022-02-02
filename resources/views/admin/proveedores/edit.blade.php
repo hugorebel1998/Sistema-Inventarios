@@ -3,9 +3,9 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-11">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <div class="card">
                             <div class="card-header bg-card-header">
                                 <div class="card-title"><i class="fas fa-user-edit"></i> Editar proveedor</div>
@@ -137,7 +137,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="card">
                             <div class="card-header bg-card-header">
                                 <div class="card-title"><i class="fas fa-camera-retro"></i> Imagen destacada</div>

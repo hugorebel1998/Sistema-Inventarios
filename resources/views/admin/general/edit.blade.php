@@ -25,7 +25,7 @@
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="col-md-3">
+                                        {{-- <div class="col-md-3">
                                             <label for="impuesto" class="text-label">Impuesto</label>
                                             <input type="text" name="impuesto"
                                                 class="form-control @error('impuesto') is-invalid @enderror"
@@ -43,8 +43,8 @@
                                             @error('porcentaje_impuesto')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
-                                        </div>
-                                        <div class="col-md-6 mt-3">
+                                        </div> --}}
+                                        <div class="col-md-6">
                                             <label for="moneda" class="text-label">Moneda de pago</label>
                                             <input type="text" name="moneda"
                                                 class="form-control @error('moneda') is-invalid @enderror"

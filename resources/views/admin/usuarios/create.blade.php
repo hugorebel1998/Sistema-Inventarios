@@ -35,7 +35,7 @@
                                             style="width: 100%;">
                                             <option value="" selected>-- Selecciona una opción--</option>
                                             <option value="Administrador" @if (old('perfil') == 'Administrador') selected="selected" @endif }}>Administrador</option>
-                                            <option value="Colaborador" @if (old('perfil') == 'Colaborador') selected="selected" @endif }}>Colaborador</option>
+                                            <option value="Gerente" @if (old('perfil') == 'Gerente') selected="selected" @endif }}>Gerente</option>
                                         </select>
                                         @error('perfil')
                                             <div class="text-danger">{{ $message }}</div>

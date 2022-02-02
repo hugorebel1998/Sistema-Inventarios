@@ -24,7 +24,7 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required',
+            'nombre' => 'required|unique:categories,name',
             'fecha_de_compra' => 'required',
         ];
     }

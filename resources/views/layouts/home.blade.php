@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     @section('title', 'Sistama de inventario')
     <title> @yield('title') | CMS</title>
@@ -125,20 +128,23 @@
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-laptop-house"></i>
                                 <p>
-                                    Mantenimiento
+                                    Administración
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
 
+                               
+
                                 <li class="nav-item">
-                                    <a href="{{ route('general.index') }}" class="nav-link text-secondary">
-                                        <i class="fas fa-tools nav-icon"></i>
-                                        <p class="text-black">Geneal</p>
+                                    <a href="{{ route('proveedores.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-truck nav-icon"></i>
+                                        <p class="text-black">Proveedores</p>
                                     </a>
                                 </li>
 
-
+                                
+                                
                                 <li class="nav-item">
                                     <a href="{{ route('usuarios.index') }}" class="nav-link text-secondary">
                                         <i class="fas fa-user-friends nav-icon"></i>
@@ -153,76 +159,88 @@
                                     </a>
                                 </li>
 
+                                <li class="nav-item">
+                                    <a href="{{ route('clientes.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-child nav-icon"></i>
+                                        <p class="text-black">Clientes</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
                         <li class="nav-item ">
                             <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-store-alt"></i>
+                                <i class="nav-icon fas fa-truck-loading"></i>
                                 <p>
-                                    Almacén
+                                    Inventario
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-
                                 <li class="nav-item">
                                     <a href="{{ route('categorias.index') }}" class="nav-link text-secondary">
-                                        <i class="far fa-list-alt nav-icon"></i>
+                                        <i class="fas fa-tags nav-icon"></i>
                                         <p class="text-black">Categorias</p>
                                     </a>
                                 </li>
-                                
+
+                                 
+                                <li class="nav-item">
+                                    <a href="{{ route('unidades.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-bars nav-icon"></i>
+                                        <p class="text-black">Unidades medida</p>
+                                    </a>
+                                </li> 
+                               
                                 <li class="nav-item">
                                     <a href="{{ route('productos.index') }}" class="nav-link text-secondary">
                                         <i class="fas fa-boxes nav-icon"></i>
                                         <p class="text-black">Productos</p>
                                     </a>
-                                </li>
-
-
-                                
-
-                                <li class="nav-item">
-                                    <a href="{{ route('unidades.index') }}" class="nav-link text-secondary">
-                                        <i class="fab fa-unity nav-icon"></i>
-                                        <p class="text-black">Unidades de medida</p>
-                                    </a>
-                                </li>
-
+                                </li>  
                             </ul>
                         </li>
-                       
+
+
                         <li class="nav-item ">
                             <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-user-friends"></i>
+                                <i class="nav-icon fas fa-funnel-dollar"></i>
                                 <p>
-                                    Proveedores
+                                    Denominaciones
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('denominaciones.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-coins nav-icon"></i>
+                                        <p class="text-black">Monedas</p>
+                                    </a>
+                                </li>              
+
+                            </ul>
+                        </li> 
+                        
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-sliders-h"></i>
+                                <p>
+                                    Ajustes
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
 
-                                <li class="nav-item">
-                                    <a href="{{ route('proveedores.index') }}" class="nav-link text-secondary">
-                                        <i class="far fa-list-alt nav-icon"></i>
-                                        <p class="text-black">Gestión proveedores</p>
-                                    </a>
-                                </li>
 
                                 <li class="nav-item">
-                                    <a href="" class="nav-link text-secondary">
-                                        <i class="fas fa-plus nav-icon"></i>
-                                        <p>Crear proveedor</p>
+                                    <a href="{{ route('general.index') }}" class="nav-link text-secondary">
+                                        <i class="fas fa-tools nav-icon"></i>
+                                        <p class="text-black">Geneal</p>
                                     </a>
-                                </li>
-
-                               
+                                </li>              
 
                             </ul>
-                        </li>
-
-                        
+                        </li> 
                     </ul>
                 </nav>
             </div>

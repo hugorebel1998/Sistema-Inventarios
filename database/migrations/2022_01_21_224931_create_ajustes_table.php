@@ -16,8 +16,8 @@ class CreateAjustesTable extends Migration
         Schema::create('ajustes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('impuesto')->nullable();
-            $table->decimal('porcentaje_impuesto')->nullable();
+            // $table->string('impuesto')->nullable();
+            // $table->decimal('porcentaje_impuesto')->nullable();
             $table->string('moneda');
             $table->string('logo')->nullable();
             $table->timestamps();

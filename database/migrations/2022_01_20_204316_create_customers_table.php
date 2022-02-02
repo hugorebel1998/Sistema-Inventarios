@@ -15,10 +15,10 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->enum('status',['Activo', 'Bloqueado'])->default('Activo');
+            $table->enum('status',['Activo', 'No activo'])->default('Activo');
             $table->string('name');
             $table->string('apellidos');
-            $table->string('tipo_documento')->nullable();
+            $table->enum('tipo_documento', ['Ine', 'Curp', 'Licencia', 'Pasaporte', 'Otro']);
             $table->string('telefono', 10);
             $table->string('direccion');
             $table->string('email')->unique();

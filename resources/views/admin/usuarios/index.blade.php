@@ -43,14 +43,13 @@
                             id="example2">
                             <thead class="text-white" style="background: #3f4570">
                                 <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">#</th>
                                     <th scope="col"></th>
                                     <th scope="col">Perfil</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Apellidos</th>
                                     <th scope="col">Teléfono</th>
-                                    {{-- <th scope="col">Correo electrónico</th> --}}
-                                    <th scope="col">Estatus</th>
+                                    <th scope="col">Correo electrónico</th>
+                                    {{-- <th scope="col">Estatus</th> --}}
                                     <th scope="col" class="text-center">Acciones</th>
                                 </tr>
                             </thead>
@@ -62,18 +61,16 @@
                                         <td>
                                             @if (is_null($usuario->imagen_usuario))
                                                 <img src="{{ asset('img/users/sin_asignar/foto.png') }}"
-                                                    class="rounded mx-auto img-thumbnail" width="80">
+                                                    class="rounded mx-auto img-thumbnail" width="60">
                                             @else
                                                 <img src="{{ asset('img/users/' . $usuario->imagen_usuario) }}"
-                                                    class="rounded mx-auto img-thumbnail" width="80">
+                                                    class="rounded mx-auto img-thumbnail" width="60">
                                             @endif
                                         </td>
-                                        <td><b>{{ $usuario->perfil }}</b> </td>
-                                        <td>{{ $usuario->name }}</td>
-                                        <td>{{ $usuario->apellido_p }} {{ $usuario->apellido_m }}</td>
-                                        <td>{{ $usuario->telefono }}</td>
-                                        {{-- <td>{{ $usuario->email }}</td> --}}
                                         <td @if ($usuario->status == 'Activo') class="table-success"  @else class="table-danger" @endif>
+                                            <p>
+                                                <b>{{ $usuario->perfil }}</b>
+                                            </p> 
                                             @if ($usuario->status == 'Activo')
                                                 <p class="badge rounded-pill bg-success">
                                                     {{ $usuario->status }}
@@ -83,7 +80,12 @@
                                                     {{ $usuario->status }}
                                                 </span>
                                             @endif
-                                        </td>
+
+                                         </td>
+                                        <td>{{ $usuario->name }} {{ $usuario->apellido_p }} {{ $usuario->apellido_m }}</td>
+                                        <td>{{ $usuario->telefono }}</td>
+                                        <td>{{ $usuario->email }}</td>
+                                      
 
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">

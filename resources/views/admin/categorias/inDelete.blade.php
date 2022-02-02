@@ -16,7 +16,7 @@
                         <table class="order-table table-striped table table-hover" cellspacing="0" width="100%" id="example2">
                             <thead class="text-white" style="background: #3f4570">
                                 <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">#</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Fecha compra</th>
                                     <th scope="col">Status</th>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Ajuste;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
@@ -19,12 +20,13 @@ class ProductController extends Controller
     }
 
     public function index()
-    {
+    {   
+        $moneda = Ajuste::pluck('moneda')->first();
         $productos = Product::all();
         $categorias = Category::where('status','Activo')->get();
         $unidades = UnidaMedida::where('status','Activo')->get();
         
-        return view('admin.productos.index', compact('productos', 'categorias', 'unidades'));
+        return view('admin.productos.index', compact('moneda','productos', 'categorias', 'unidades'));
     }
 
     public function create()
@@ -43,7 +45,13 @@ class ProductController extends Controller
         $producto->category_id = $request->categoria;
         $producto->unidad_id = $request->unidad;
         $producto->descripcion = $request->descripción;
+        $producto->costo = $request->costo;
+        $producto->precio_venta = $request->precio_venta;
+        $producto->existencia = $request->existencia;
+        $producto->nivel_existencia = $request->nivel_existencia;
 
+          
+       
 
         if ($request->hasFile('imagen')) {
             $imagen = $request->file('imagen');
@@ -52,8 +60,8 @@ class ProductController extends Controller
             $imagen->move($ruta, $nombreImagen);
             $producto->imagen_producto = $nombreImagen;
         }
-
-
+        //dd($producto);
+      
         if ($producto->save()) {
             toastr()->success('Nuevo producto registrado');
             return redirect()->to(route('productos.index'));
@@ -82,6 +90,10 @@ class ProductController extends Controller
         $producto->category_id = $request->categoria;
         $producto->unidad_id = $request->unidad;
         $producto->descripcion = $request->descripción;
+        $producto->costo = $request->costo;
+        $producto->precio_venta = $request->precio_venta;
+        $producto->existencia = $request->existencia;
+        $producto->nivel_existencia = $request->nivel_existencia;
 
         if ($request->hasFile('imagen')) {
             $imagen = $request->file('imagen');
@@ -115,18 +127,22 @@ class ProductController extends Controller
     public function indexDelete()
     {
         $productos = Product::onlyTrashed()->get();
-<<<<<<< HEAD
-        return view('admin.productos.inDelete', compact('productos'));
-=======
         $categorias = Category::all();
         $unidades = UnidaMedida::all();
         return view('admin.productos.inDelete', compact('productos', 'categorias', 'unidades'));   
->>>>>>> bddb414ecefcd94b83520a6046b04661dc1f20eb
     }
 
     public function restore($id)
     {
         Product::onlyTrashed()->findOrFail($id)->restore();
         return redirect()->to(route('productos.index'));
+    }
+
+    public function productsCategegory($id){
+        $productoCategories = Product::where('category_id', $id)->get();
+        $categorias = Category::all();
+        $unidades = UnidaMedida::all();
+        
+        return view('admin.productos.productcategory', compact('productoCategories', 'categorias', 'unidades'));
     }
 }

@@ -18,7 +18,7 @@ class CreateCollaboratorsTable extends Migration
             $table->enum('status',['Activo', 'No activo'])->default('Activo');
             $table->string('name');
             $table->string('apellidos');
-            $table->string('tipo_documento');
+            $table->enum('tipo_documento', ['Ine', 'Curp', 'Licencia', 'Pasaporte', 'Otro']);
             $table->string('telefono', 10);
             $table->string('direccion');
             $table->date('fecha_nacimiento');

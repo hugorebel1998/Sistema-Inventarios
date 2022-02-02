@@ -10,6 +10,21 @@ Route::get('/geneal/edit/{general}', 'GeneralController@edit')->name('general.ed
 Route::put('/general/update', 'GeneralController@update')->name('general.update');
 
 
+//Rutas denominaciones
+Route::get('/denominaciones', 'MonedaController@index')->name('denominaciones.index');
+Route::get('/denominaciones/create', 'MonedaController@create')->name('denominacion.create');
+Route::post('/denominaciones/store', 'MonedaController@store')->name('denominacion.store');
+Route::get('/denominaciones/edit/{moneda}', 'MonedaController@edit')->name('denominacion.edit');
+Route::put('/denominaciones/update', 'MonedaController@update')->name('denominacion.update');
+Route::delete('/denominaciones/delete/{moneda}', 'MonedaController@delete')->name('denominacion.delete');
+
+
+
+
+
+
+
+
 //Rutas de usuarios
 Route::get('/usuarios', 'UserController@index')->name('usuarios.index');
 Route::get('/usuario/create', 'UserController@create')->name('usuario.create');
@@ -30,7 +45,7 @@ Route::put('/colaboradore/update', 'ColaboradorController@update')->name('colabo
 Route::delete('/colaboradore/delete/{usser}', 'ColaboradorController@delete')->name('colaborador.delete');
 Route::get('/colaboradores/eliminados', 'ColaboradorController@indexDelete')->name('colaboradores.index.delete');
 Route::get('/colaboradore/restablecer/{user}', 'ColaboradorController@restore')->name('colaborador.restore');
-Route::get('/colaborador/exportar-excel', 'ColaboradorController@expotExcel')->name('colaborador.excel');
+// Route::get('/colaborador/exportar-excel', 'ColaboradorController@expotExcel')->name('colaborador.excel');
 
 
 
@@ -43,6 +58,18 @@ Route::put('/proveedor/update', 'ProveedorController@update')->name('proveedor.u
 Route::delete('/proveedor/delete/{proveedor}', 'ProveedorController@delete')->name('proveedor.delete');
 Route::get('/proveedores/eliminados', 'ProveedorController@indexDelete')->name('provedores.index.delete');
 Route::get('/proveedores/restablecer/{proveedor}', 'ProveedorController@restore')->name('provedore.restore');
+
+
+//Rutas de clientes
+Route::get('/clientes', 'ClienteController@index')->name('clientes.index');
+Route::get('/clientes/create', 'ClienteController@create')->name('clientes.create');
+Route::post('/clientes/store', 'ClienteController@store')->name('clientes.store');
+Route::get('/clientes/edit/{cliente}', 'ClienteController@edit')->name('clientes.edit');
+Route::put('/clientes/update', 'ClienteController@update')->name('clientes.update');
+Route::delete('/clientes/delete/{cliente}', 'ClienteController@delete')->name('clientes.delete');
+Route::get('/clientes/eliminados', 'ClienteController@indexDelete')->name('clientes.index.delete');
+Route::get('/clientes/restablecer/{cliente}', 'ClienteController@restore')->name('cliente.restore');
+
 
 
 
@@ -66,9 +93,6 @@ Route::put('/unidad/update', 'UnidadMedidaController@update')->name('unidad.upda
 Route::delete('/unidad/delete/{unidad}', 'UnidadMedidaController@delete')->name('unidad.delete');
 
 
-
-
-
 // Rutas de productos
 Route::get('/productos', 'ProductController@index')->name('productos.index');
 Route::get('/producto/create', 'ProductController@create')->name('producto.create');
@@ -78,7 +102,7 @@ Route::put('/producto/update', 'ProductController@update')->name('producto.updat
 Route::delete('/producto/delete/{product}', 'ProductController@delete')->name('producto.delete');
 Route::get('/produstos/eliminados', 'ProductController@indexDelete')->name('productos.index.delete');
 Route::get('/producto/restablecer/{product}', 'ProductController@restore')->name('producto.restore');
-
+Route::get('/productos/categoria-productos/{id}', 'ProductController@productsCategegory')->name('admin.productos.categoria');
 
 
 

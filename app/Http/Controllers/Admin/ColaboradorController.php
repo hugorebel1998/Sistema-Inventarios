@@ -137,9 +137,9 @@ class ColaboradorController extends Controller
 
     }
 
-    public function expotExcel()
-    {
-        return Excel::download(new CollaboratorExport, 'colaboradores.xlsx');
-    }
+    // public function expotExcel()
+    // {
+    //     return Excel::download(new CollaboratorExport, 'colaboradores.xlsx');
+    // }
 }
 
